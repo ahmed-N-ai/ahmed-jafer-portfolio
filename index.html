@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ahmed Nasser Jafer — Data Analyst portfolio showcasing Power BI, Excel, data analytics and dashboard projects.">
+<meta name="theme-color" content="#101a30">
+<meta property="og:title" content="Ahmed Nasser Jafer — Data Analyst">
+<meta property="og:description" content="Turning raw data into decisions you can act on.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>Ahmed Nasser Jafer — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand">Ahmed Nasser Jafer</a>
+    
+<button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
+<ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work-experience">Experience</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+       <li><a href="#process">Process</a></li>
+    </ul>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#work-experience">Experience</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Data Analyst</div>
+      <h1>Turning raw data into decisions you can act on.</h1>
+      <p class="lead">Computer Science &amp; AI student specializing in Data Analytics — I clean messy datasets and build dashboards in Excel and Power BI that make your numbers make sense.</p>
+      <div class="btn-row">
+        <a href="#projects" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <a href="resume/Ahmed-Nasser-Jafer-CV.pdf" download download="Ahmed_Nasser_Jafer_CV.pdf" class="btn btn-ghost">Download CV</a>
+      </div>
+    </div>
+    <div class="chart-box">
+      <svg viewBox="0 0 400 220">
+        <polyline class="chart-line" points="10,170 70,120 130,150 190,80 250,100 310,40 390,55"></polyline>
+        <circle class="chart-dot" style="animation-delay:.4s" cx="10" cy="170" r="5" fill="#f2a94e"></circle>
+        <circle class="chart-dot" style="animation-delay:.7s" cx="70" cy="120" r="5" fill="#f2a94e"></circle>
+        <circle class="chart-dot" style="animation-delay:1s" cx="130" cy="150" r="5" fill="#f2a94e"></circle>
+        <circle class="chart-dot" style="animation-delay:1.3s" cx="190" cy="80" r="5" fill="#f2a94e"></circle>
+        <circle class="chart-dot" style="animation-delay:1.6s" cx="250" cy="100" r="5" fill="#f2a94e"></circle>
+        <circle class="chart-dot" style="animation-delay:1.9s" cx="310" cy="40" r="5" fill="#f2a94e"></circle>
+        <circle class="chart-dot" style="animation-delay:2.1s" cx="390" cy="55" r="5" fill="#f2a94e"></circle>
+      </svg>
+      <div class="chart-caption"><span>Raw data</span><span>Clear insight</span></div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-stats">
+      <div>
+        <div class="stat-label">Based in</div>
+        <div class="stat-value">Egypt</div>
+      </div>
+      <div>
+        <div class="stat-label">Studying</div>
+        <div class="stat-value">CS &amp; AI — Menoufia University</div>
+      </div>
+      <div>
+        <div class="stat-label">Currently</div>
+        <div class="stat-value">Data Analytics Trainee, DEPI</div>
+      </div>
+    </div>
+    <div>
+      <div class="head" style="margin-bottom:20px;">
+        <div class="tag">About</div>
+        <h2>Why I do this</h2>
+      </div>
+      <p>I started my journey in Computer Science curious about how businesses actually make decisions — and I found the answer in data. That curiosity turned into a genuine passion: transforming complex numbers into simple stories any business owner can understand and act on.</p>
+      <p>Today, as a Computer Science &amp; AI student specializing in Data Analytics and a Data Analytics Trainee at DEPI, I clean raw datasets, build interactive Power BI dashboards, and use Excel, SQL, and Python to uncover the story hidden behind the numbers.</p>
+      <div class="usp">"I help small business owners turn messy spreadsheets into dashboards they can actually use — backed by a real Data Science background and hands-on training, not just tutorials."</div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Education</div>
+      <h2>Academic foundation</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2nd Year — In Progress</div>
+        <h3>B.Sc. Computer Science &amp; Artificial Intelligence</h3>
+        <div class="org">Menoufia National University — GPA 3.63 / 4.0</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Skills</div>
+      <h2>What I bring to your data</h2>
+    </div>
+
+    <div class="radar-wrap">
+      <svg viewBox="0 0 300 300" width="280" height="280">
+        <polygon points="150,40 260,150 150,260 40,150" class="radar-grid"/>
+        <polygon points="150,67.5 232.5,150 150,232.5 67.5,150" class="radar-grid"/>
+        <polygon points="150,95 205,150 150,205 95,150" class="radar-grid"/>
+        <polygon points="150,122.5 177.5,150 150,177.5 122.5,150" class="radar-grid"/>
+        <line x1="150" y1="150" x2="150" y2="40" class="radar-axis"/>
+        <line x1="150" y1="150" x2="260" y2="150" class="radar-axis"/>
+        <line x1="150" y1="150" x2="150" y2="260" class="radar-axis"/>
+        <line x1="150" y1="150" x2="40" y2="150" class="radar-axis"/>
+        <polygon points="150,62 238,150 150,210.5 84,150" class="radar-data" id="radar-data"/>
+        <text x="150" y="24" text-anchor="middle" class="radar-label">Excel</text>
+        <text x="272" y="154" text-anchor="start" class="radar-label">Power BI</text>
+        <text x="150" y="282" text-anchor="middle" class="radar-label">SQL</text>
+        <text x="26" y="154" text-anchor="end" class="radar-label">Python</text>
+      </svg>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h12"/></svg>
+      </div>
+      <div>
+        <h3>Data Cleaning (Excel Power Query)</h3>
+        <p>I find and fix missing values, duplicates, and inconsistent records so your data is accurate and ready for real analysis — not guesswork.</p>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="17" y="3" width="4" height="17"/></svg>
+      </div>
+      <div>
+        <h3>Dashboard Development (Power BI)</h3>
+        <p>I build interactive dashboards with KPI cards, regional visuals, and slicers so you can explore your business data yourself, in real time.</p>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M4 19a2 2 0 002 2h12a2 2 0 002-2M8 8h8M8 12h8M8 16h5"/></svg>
+      </div>
+      <div>
+        <h3>Data Visualization (Pivot Tables &amp; Charts)</h3>
+        <p>I turn raw spreadsheets into Pivot Tables, Pivot Charts, and Slicers that surface trends at a glance instead of buried in rows of numbers.</p>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+      </div>
+      <div>
+        <h3>SQL</h3>
+        <p>I query and organize structured data efficiently to answer specific business questions directly from your database.</p>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM8 12h8M12 8v8"/></svg>
+      </div>
+      <div>
+        <h3>Python</h3>
+        <p>I use Python for data cleaning and analysis on larger or more complex datasets that go beyond spreadsheet limits.</p>
+      </div>
+    </div>
+
+    <div class="skill-counters">
+      <div class="skill-counter">
+        <div class="counter-num"><span class="counter" data-target="2">0</span><span class="trend-up">▲</span></div>
+        <div class="counter-label">Excel Projects</div>
+      </div>
+      <div class="skill-counter">
+        <div class="counter-num"><span class="counter" data-target="4">0</span><span class="trend-up">▲</span></div>
+        <div class="counter-label">Power BI Projects</div>
+      </div>
+      <div class="skill-counter">
+        <div class="counter-num"><span class="counter" data-target="0">0</span></div>
+        <div class="counter-label">SQL Projects</div>
+      </div>
+      <div class="skill-counter">
+        <div class="counter-num"><span class="counter" data-target="0">0</span></div>
+        <div class="counter-label">Python Projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="work-experience">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Work Experience</div>
+      <h2>Where I've applied it</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">July 2025 — Present</div>
+        <h3>Data Analytics Trainee</h3>
+        <div class="org">DEPI (Digital Egypt Pioneers Initiative), Round 5 — Skills Dynamix</div>
+        <ul>
+          <li>Cleaned and structured real-world style datasets using Excel Power Query, resolving missing values and duplicates.</li>
+          <li>Built multiple Power BI dashboards with KPI cards, regional visuals, and slicers.</li>
+          <li>Reduced manual data preparation time by applying Pivot Tables, Pivot Charts, and Slicers.</li>
+          <li>Trained hands-on in Excel, Power BI, Tableau, SQL, and Python.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Services</div>
+      <h2>How I can help</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-index">01</span>
+        <h3>Excel Dashboard Creation</h3>
+        <p>Clear, interactive Excel dashboards with Pivot Tables, Pivot Charts, and Slicers — see your sales, operations, or performance data at a glance.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-index">02</span>
+        <h3>Power BI Dashboard Development</h3>
+        <p>Interactive Power BI dashboards with KPI cards, regional visuals, and filters, giving you a live view of your business to support faster decisions.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-index">03</span>
+        <h3>Data Cleaning &amp; Preparation</h3>
+        <p>Messy datasets cleaned and structured — missing values, duplicates, and formatting issues fixed — so your data is ready to analyze.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Projects</div>
+      <h2>Selected work</h2>
+    </div>
+
+    <div class="project" id="project-1">
+      <div class="project-top">
+        <div class="project-visual" style="padding:0;border:none;background:none;">
+          <img loading="lazy" src="assets/images/project-1.webp" alt="Superstore sales dashboard built in Excel" style="width:100%;height:100%;object-fit:cover;border-radius:10px;cursor:zoom-in;" onclick="openLightbox(this.src)">
+        </div>
+        <div class="project-info">
+          <div class="project-tools">
+            <span class="tool-tag">Excel</span>
+            <span class="tool-tag">Power Query</span>
+            <span class="tool-tag">Data Model</span>
+            <span class="tool-tag">DAX</span>
+            <span class="tool-tag">Pivot Tables</span>
+            <span class="tool-tag">Slicers</span>
+          </div>
+          <h3>Superstore Sales Dashboard</h3>
+          <p>Cleaned and modeled a ~10,000-row retail dataset spread across three related tables, then built a fully interactive Excel dashboard on top of it.</p>
+          <div class="project-actions"><a class="project-page-link" href="projects/superstore-sales-dashboard.html">Full case study →</a><button class="project-toggle" onclick="toggleProject('project-1')">
+            Quick overview
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button></div>
+        </div>
+      </div>
+      <div class="project-detail">
+        <div class="project-detail-inner">
+          <div class="case-line"><b>Challenge</b><span>The client handed over ~10,000 rows of orders data split across three separate tables — orders, returns, and regional managers — with no relationships between them and missing values scattered across several columns, including a postal code missing for an entire region.</span></div>
+          <div class="case-line"><b>Solution</b><span>I explored the raw data first to understand the business behind it, then used Power Query to clean it systematically. For the missing postal code, I checked whether the region had one at all — when several possible codes came up, I didn't guess; I confirmed the exact value with the client directly before entering it. I restructured the Orders table into a proper dimension-and-fact model, removed duplicated fields, and connected all three tables into a Star Schema with clean one-to-many relationships. I then wrote DAX measures to keep the dashboard fast, and built PivotTables, PivotCharts, KPI cards, and linked slicers focused mainly on sales performance.</span></div>
+          <div class="case-line"><b>Result</b><span>A fast, well-structured dashboard built on a clean data model — with every value traceable and confirmed, not filled in by guesswork. It was also the largest dataset I'd worked with at that point, and a real step up in handling data at scale.</span></div>
+          <a class="proj-link" href="https://drive.google.com/drive/folders/14oMXcumE6rF_C0NlTPTCWTH1-lLSA8Qd" target="_blank" rel="noopener">View project files →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project" id="project-2">
+      <div class="project-top">
+        <div class="project-visual" style="padding:0;border:none;background:none;">
+          <img loading="lazy" src="assets/images/project-2.webp" alt="Sales dashboard built in Power BI" style="width:100%;height:100%;object-fit:cover;border-radius:10px;cursor:zoom-in;" onclick="openLightbox(this.src)">
+        </div>
+        <div class="project-info">
+          <div class="project-tools">
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">Power Query</span>
+            <span class="tool-tag">Data Modeling</span>
+            <span class="tool-tag">DAX</span>
+            <span class="tool-tag">Star Schema</span>
+          </div>
+          <h3>Sales Dashboard</h3>
+          <p>Built a complete Power BI dashboard from a ~3,000-row dataset that didn't even have a sales column to begin with.</p>
+          <div class="project-actions"><a class="project-page-link" href="projects/sales-dashboard-power-bi.html">Full case study →</a><button class="project-toggle" onclick="toggleProject('project-2')">
+            Quick overview
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button></div>
+        </div>
+      </div>
+      <div class="project-detail">
+        <div class="project-detail-inner">
+          <div class="case-line"><b>Challenge</b><span>This dataset was a different kind of challenge: around 3,000 rows brought into Power Query, with a very large number of missing values throughout — and no explicit sales column at all. The raw data only had unit price and quantity sold per order.</span></div>
+          <div class="case-line"><b>Solution</b><span>I first explored the data to understand the business behind it, then built a proper Sales column myself by multiplying unit price by quantity. After cleaning the missing values, I split the data into dimension and fact tables using the same Star Schema approach as before, loaded the model into Power BI, and wrote DAX measures on top of it. I then built the dashboard: KPI cards for sales, orders, and customers, a monthly sales trend, a top-customers ranking, a product-line breakdown, a deal-size donut chart, a territory comparison, and a country map.</span></div>
+          <div class="case-line"><b>Result</b><span>A full sales dashboard built from data where the core metric — sales — didn't exist yet and had to be constructed first. It pushed me to think about the data model, not just the visuals, before building anything.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="process">
+  <div class="wrap">
+    <div class="head"><div class="tag">My process</div><h2>From messy data to a decision-ready view</h2></div>
+    <div class="process-grid">
+      <article><span>01</span><h3>Understand</h3><p>Explore the raw tables, business context, missing fields, and the questions the dashboard needs to answer.</p></article>
+      <article><span>02</span><h3>Clean</h3><p>Use Power Query and structured transformations to handle missing values, duplicates, formatting, and preparation.</p></article>
+      <article><span>03</span><h3>Model</h3><p>Separate facts and dimensions where appropriate and build clear relationships before visual design.</p></article>
+      <article><span>04</span><h3>Analyze</h3><p>Create reusable measures and analysis logic so the numbers stay consistent across the dashboard.</p></article>
+      <article><span>05</span><h3>Visualize</h3><p>Turn the analysis into focused KPI cards, trends, comparisons, rankings, and filters that answer business questions.</p></article>
+      <article><span>06</span><h3>Communicate</h3><p>Document the decisions, surface insights, and make the final output easy for another person to understand and use.</p></article>
+    </div>
+  </div>
+</section>
+<section id="proof">
+  <div class="wrap">
+    <div class="head"><div class="tag">What you get</div><h2>Built for clarity, not decoration</h2></div>
+    <div class="proof-grid">
+      <article><span>01</span><h3>Clean foundations</h3><p>Data preparation and modeling come before visual polish, so the dashboard has a dependable structure underneath it.</p></article>
+      <article><span>02</span><h3>Business-first visuals</h3><p>KPIs, trends, rankings, categories, geography, and filters are selected to make the analysis easier to use and explain.</p></article>
+      <article><span>03</span><h3>Traceable decisions</h3><p>When a value is uncertain, it should be verified or clearly documented—not quietly guessed.</p></article>
+    </div>
+  </div>
+</section>
+<section id="faq">
+  <div class="wrap">
+    <div class="head"><div class="tag">FAQ</div><h2>Before we work together</h2></div>
+    <div class="faq-list">
+      <details><summary>What kind of data work do you handle?</summary><p>Data cleaning and preparation, Excel dashboards, Power BI dashboards, data modeling, visualization, and analysis based on the tools and experience presented on this portfolio.</p></details>
+      <details><summary>Can you work with messy Excel files?</summary><p>Yes. Cleaning and structuring messy spreadsheet data is one of the core workflows demonstrated in the featured projects.</p></details>
+      <details><summary>Do you provide the source files?</summary><p>For the projects where files are available, the portfolio links to the project resources. For new client work, the deliverables can be agreed before the project starts.</p></details>
+      <details><summary>Do you build Power BI dashboards from raw data?</summary><p>Yes. The featured Power BI case study demonstrates the workflow from raw fields through cleaning, metric construction, modeling, DAX, and dashboard design.</p></details>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-band">
+      <h2>Have messy data sitting in a spreadsheet?</h2>
+      <p>Let's talk about turning it into a dashboard you can actually use to make decisions.</p>
+      <div class="btn-row contact-actions"><a href="mailto:ahmed.jafer.ai@gmail.com" class="btn btn-amber">Email me</a><a href="resume/Ahmed-Nasser-Jafer-CV.pdf" class="btn btn-ghost contact-cv" target="_blank" rel="noopener">View CV</a></div>
+      <div class="contact-list">
+        <a href="mailto:ahmed.jafer.ai@gmail.com">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+          Gmail
+        </a>
+        <a href="#" onclick="copyEmail(event)" title="Copy email address">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy
+        </a>
+        <a href="https://wa.me/201063846682" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm0 18.06h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 01-1.26-4.39c0-4.55 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.24-8.25 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.73 2.64 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          WhatsApp
+        </a>
+        <a href="tel:+201063846682">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call
+        </a>
+        <a href="https://linkedin.com/in/ahmed-Jafer" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.7 8 21 10.1 21 13.55V23h-4v-8.4c0-2-.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.45V23h-4V8z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="footer-inner"><div>© 2026 Ahmed Nasser Jafer. Built with care, one dataset at a time.</div><a href="resume/Ahmed-Nasser-Jafer-CV.pdf" target="_blank" rel="noopener">Download CV ↗</a></div></footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="Enlarged dashboard screenshot" onclick="event.stopPropagation()">
+</div>
+
+<div class="toast" id="toast">Email copied to clipboard!</div>
+
+<script src="js/script.js" defer></script>
+
+
+<div class="site-status" aria-label="Portfolio status">
+  <span>Available for data analytics projects</span>
+</div>
+
+</body>
+</html>

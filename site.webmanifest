@@ -1,0 +1,9 @@
+{
+  "name":"Ahmed Nasser Jafer — Data Analyst",
+  "short_name":"Ahmed Jafer",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#0b1120",
+  "theme_color":"#101a30",
+  "icons":[{"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml"}]
+}
