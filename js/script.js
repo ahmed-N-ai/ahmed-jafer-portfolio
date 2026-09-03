@@ -205,16 +205,16 @@ window.toggleTheme=function(){
 
 // Responsive navigation
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('mobile-menu-btn');
-  const nav = document.getElementById('navlinks');
-  if (!btn || !nav) return;
+  const btn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
   btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+    const open = menu.classList.toggle('open');
     btn.setAttribute('aria-expanded', String(open));
     btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('open');
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
     btn.setAttribute('aria-expanded', 'false');
   }));
 });
