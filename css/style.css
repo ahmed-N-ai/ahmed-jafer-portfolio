@@ -316,3 +316,27 @@
 .site-status:before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc84;margin-right:7px}
 @media(max-width:860px){.process-grid,.proof-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:720px){.process-grid,.proof-grid{grid-template-columns:1fr}.site-status{display:none}.project-actions{gap:12px}.project-page-link{font-size:.84rem}}
+
+/* Scroll progress bar */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--blue),var(--amber));z-index:300;transition:width .1s ease;}
+
+/* Available badge */
+.available-badge{display:inline-flex;align-items:center;gap:8px;color:#3ddc84;font-weight:600;font-size:0.85rem;margin-bottom:10px;}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;position:relative;}
+.pulse-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#3ddc84;animation:pulse-ring 1.8s ease-out infinite;}
+@keyframes pulse-ring{0%{transform:scale(1);opacity:0.6;}100%{transform:scale(2.8);opacity:0;}}
+
+/* Custom cursor (desktop only) */
+@media (hover:hover) and (pointer:fine){
+  body{cursor:none;}
+  #custom-cursor{
+    position:fixed;top:0;left:0;width:18px;height:18px;border-radius:50%;
+    background:var(--blue);pointer-events:none;z-index:9999;
+    transform:translate(-50%,-50%);transition:width .15s ease,height .15s ease,background .15s ease;
+    mix-blend-mode:difference;
+  }
+  #custom-cursor.grow{width:36px;height:36px;background:var(--amber);}
+}
+@media (hover:none), (pointer:coarse){
+  #custom-cursor{display:none;}
+}
