@@ -406,7 +406,32 @@
     </div>
   </div>
 </section>
+<section id="testimonials">
+  <div class="wrap">
+    <div class="head"><div class="tag">Testimonials</div><h2>What people say</h2></div>
+    <div class="testimonial-cards" id="testimonial-cards">
+      <p class="testimonial-empty">Loading feedback…</p>
+    </div>
+    <div class="feedback-form-wrap">
+      <h3>Leave your feedback</h3>
+      <form id="feedback-form">
+        <input type="text" id="fb-name" placeholder="Your name" required maxlength="60">
+        <div class="star-rating" id="star-rating">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <textarea id="fb-message" placeholder="Your feedback..." required maxlength="300" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        <p id="fb-status"></p>
+      </form>
+    </div>
+  </div>
+</section>
 <section id="contact">
+
   <div class="wrap">
     <div class="contact-band">
       <h2>Have messy data sitting in a spreadsheet?</h2>
@@ -447,6 +472,7 @@
 <div class="toast" id="toast">Email copied to clipboard!</div>
 
 <script src="js/script.js" defer></script>
+<script type="module" src="js/feedback.js"></script>
 
 
 <div class="site-status" aria-label="Portfolio status">
