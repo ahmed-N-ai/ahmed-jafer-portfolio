@@ -247,10 +247,10 @@ window.addEventListener('scroll', () => {
 })();
 
 // Typing effect on hero tagline
-(function(){
+function typeLeadText(text){
   const el = document.getElementById('typed-lead');
   if(!el) return;
-  const text = el.getAttribute('data-full-text');
+  el.setAttribute('data-full-text', text);
   let i = 0;
   function type(){
     if(i <= text.length){
@@ -260,4 +260,109 @@ window.addEventListener('scroll', () => {
     }
   }
   type();
+}
+(function(){
+  const el = document.getElementById('typed-lead');
+  if(!el) return;
+  typeLeadText(el.getAttribute('data-full-text'));
+})();
+
+// ---------- Language toggle (EN / AR) ----------
+const translations = {
+  en: {
+    nav_about: "About",
+    nav_skills: "Skills",
+    nav_experience: "Experience",
+    nav_services: "Services",
+    nav_projects: "Projects",
+    nav_process: "Process",
+    nav_cta: "Get in touch",
+    hero_badge: "Available for freelance work",
+    hero_eyebrow: "Data Analyst",
+    hero_title: "Turning raw data into decisions you can act on.",
+    hero_lead: "Computer Science & AI student specializing in Data Analytics — I clean messy datasets and build dashboards in Excel and Power BI that make your numbers make sense.",
+    hero_btn_work: "View my work",
+    hero_btn_contact: "Get in touch",
+    hero_btn_cv: "Download CV",
+        chart_raw: "Raw data",
+    chart_clear: "Clear insight",
+    about_tag: "About",
+    about_h2: "Why I do this",
+    about_p1: "I used to wonder why a shop owner would bother keeping records of every single sale — my best guess was that it was just in case a customer needed a refund, or something went wrong. It wasn't until I actually stepped into this field that I understood what that data really was: not just a backup plan, but the raw material behind almost every decision happening around us, in every business, at every scale.",
+    about_p2: "Today, as a Computer Science & AI student specializing in Data Analytics and a Data Analytics Trainee at DEPI, I clean raw datasets, build interactive Power BI dashboards, and use Excel, SQL, and Python to uncover the story hidden behind the numbers.",
+    about_usp: "I help small business owners turn messy spreadsheets into dashboards they can actually use — backed by a real Data Science background and hands-on training, not just tutorials.",
+    about_based_label: "Based in",
+    about_based_value: "Egypt",
+    about_study_label: "Studying",
+    about_study_value: "CS & AI — Menoufia University",
+    about_current_label: "Currently",
+    about_current_value: "Data Analytics Trainee, DEPI",
+    edu_tag: "Education",
+    edu_h2: "Academic foundation",
+    edu_date: "2nd Year — In Progress",
+    edu_title: "B.Sc. Computer Science & Artificial Intelligence",
+    edu_org: "Menoufia National University — GPA 3.63 / 4.0"
+  },
+  ar: {
+    nav_about: "نبذة عني",
+    nav_skills: "المهارات",
+    nav_experience: "الخبرة",
+    nav_services: "الخدمات",
+    nav_projects: "المشاريع",
+    nav_process: "طريقة العمل",
+    nav_cta: "تواصل معي",
+    hero_badge: "متاح للعمل الحر",
+    hero_eyebrow: "محلل بيانات",
+    hero_title: "تحويل البيانات الخام إلى قرارات يمكنك التصرف بناءً عليها",
+    hero_lead: "طالب علوم حاسب وذكاء اصطناعي متخصص في تحليل البيانات، بنظّف البيانات الفوضوية وأبني لوحات بيانات تفاعلية في Excel وPower BI تخلي أرقامك مفهومة.",
+    hero_btn_work: "شاهد أعمالي",
+    hero_btn_contact: "تواصل معي",
+    hero_btn_cv: "تحميل السيرة الذاتية",
+    chart_raw: "بيانات خام",
+    chart_clear: "رؤية واضحة",
+    about_tag: "نبذة عني",
+    about_h2: "ليه بعمل الشغلانة دي",
+    about_p1: "كنت مش فاهم ليه صاحب متجر يهتم إنه يحتفظ بسجل لكل عملية بيع — كان أقصى تفسير عندي إنها مجرد نسخة احتياطية لو حصل استرجاع أو حصل خطأ. لحد ما دخلت المجال ده فعليًا وفهمت إيه هي البيانات دي حقيقةً: مش مجرد نسخة احتياطية، لكنها المادة الخام اللي بتحرك تقريبًا كل قرار بيتاخد حوالينا، في كل شركة، بأي حجم.",
+    about_p2: "دلوقتي، كطالب علوم حاسب وذكاء اصطناعي متخصص في تحليل البيانات ومتدرب تحليل بيانات في DEPI، بنظّف البيانات الخام، وأبني لوحات بيانات تفاعلية في Power BI، وبستخدم Excel وSQL وPython عشان أكتشف القصة المخفية خلف الأرقام.",
+    about_usp: "بساعد أصحاب المشاريع الصغيرة يحولوا جداول البيانات الفوضوية إلى لوحات بيانات فعلاً بيستخدموها — بخلفية حقيقية في علم البيانات وتدريب عملي، مش مجرد كورسات نظرية.",
+    about_based_label: "مقيم في",
+    about_based_value: "مصر",
+    about_study_label: "بدرس",
+    about_study_value: "علوم حاسب وذكاء اصطناعي — جامعة المنوفية",
+    about_current_label: "حاليًا",
+    about_current_value: "متدرب تحليل بيانات، DEPI",
+    edu_tag: "التعليم",
+    edu_h2: "الأساس الأكاديمي",
+    edu_date: "السنة الثانية — قيد الدراسة",
+    edu_title: "بكالوريوس علوم حاسب وذكاء اصطناعي",
+    edu_org: "جامعة المنوفية الأهلية — تقدير تراكمي 3.63 / 4.0"
+  }
+};
+
+function applyLanguage(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key] !== undefined){
+      if(el.id === 'typed-lead'){
+        typeLeadText(translations[lang][key]);
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  const label = document.getElementById('lang-label');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+  localStorage.setItem('portfolio-lang', lang);
+}
+
+function toggleLang(){
+  const current = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+  applyLanguage(current === 'ar' ? 'en' : 'ar');
+}
+
+(function(){
+  const saved = localStorage.getItem('portfolio-lang');
+  if(saved === 'ar') applyLanguage('ar');
 })();
