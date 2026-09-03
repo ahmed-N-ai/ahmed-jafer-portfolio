@@ -218,3 +218,46 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.setAttribute('aria-expanded', 'false');
   }));
 });
+
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const bar = document.getElementById('scroll-progress');
+  if(!bar) return;
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  bar.style.width = pct + '%';
+});
+
+// Custom cursor
+(function(){
+  if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+    const cursor = document.createElement('div');
+    cursor.id = 'custom-cursor';
+    document.body.appendChild(cursor);
+    window.addEventListener('mousemove', (e)=>{
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .project, .service-card').forEach(el=>{
+      el.addEventListener('mouseenter', ()=>cursor.classList.add('grow'));
+      el.addEventListener('mouseleave', ()=>cursor.classList.remove('grow'));
+    });
+  }
+})();
+
+// Typing effect on hero tagline
+(function(){
+  const el = document.getElementById('typed-lead');
+  if(!el) return;
+  const text = el.getAttribute('data-full-text');
+  let i = 0;
+  function type(){
+    if(i <= text.length){
+      el.innerHTML = text.slice(0, i);
+      i++;
+      setTimeout(type, 18);
+    }
+  }
+  type();
+})();
