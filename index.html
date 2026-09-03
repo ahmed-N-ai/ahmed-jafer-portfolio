@@ -48,12 +48,12 @@
 
 
 <ul class="navlinks" id="navlinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#work-experience">Experience</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-       <li><a href="#process">Process</a></li>
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+      <li><a href="#work-experience" data-i18n="nav_experience">Experience</a></li>
+      <li><a href="#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+       <li><a href="#process" data-i18n="nav_process">Process</a></li>
     </ul>
     <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -61,7 +61,10 @@
     <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
       <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
     </button>
-    <a href="#contact" class="nav-cta">Get in touch</a>
+    <button id="lang-toggle" class="theme-toggle" onclick="toggleLang()" aria-label="Toggle language">
+      <span id="lang-label">AR</span>
+    </button>
+    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Get in touch</a>
   </nav>
   <div class="mobile-menu" id="mobile-menu">
     <a href="#about">About</a>
@@ -76,14 +79,14 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <div class="available-badge"><span class="pulse-dot"></span>Available for freelance work</div>
-      <div class="eyebrow">Data Analyst</div>
-      <h1>Turning raw data into decisions you can act on.</h1>
-      <p class="lead" id="typed-lead" data-full-text="Computer Science &amp; AI student specializing in Data Analytics — I clean messy datasets and build dashboards in Excel and Power BI that make your numbers make sense."></p>
+      <div class="available-badge"><span class="pulse-dot"></span><span data-i18n="hero_badge">Available for freelance work</span></div>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Data Analyst</div>
+      <h1 data-i18n="hero_title">Turning raw data into decisions you can act on.</h1>
+      <p class="lead" id="typed-lead" data-i18n="hero_lead" data-full-text="Computer Science &amp; AI student specializing in Data Analytics — I clean messy datasets and build dashboards in Excel and Power BI that make your numbers make sense."></p>
       <div class="btn-row">
-        <a href="#projects" class="btn btn-primary">View my work</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-        <a href="resume/Ahmed-Nasser-Jafer-CV.pdf" download="Ahmed_Nasser_Jafer_CV.pdf" class="btn btn-ghost">Download CV</a>
+        <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_work">View my work</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero_btn_contact">Get in touch</a>
+        <a href="resume/Ahmed-Nasser-Jafer-CV.pdf" download="Ahmed_Nasser_Jafer_CV.pdf" class="btn btn-ghost" data-i18n="hero_btn_cv">Download CV</a>
       </div>
     </div>
     <div class="chart-box">
@@ -97,53 +100,73 @@
         <circle class="chart-dot" style="animation-delay:1.9s" cx="310" cy="40" r="5" fill="#f2a94e"></circle>
         <circle class="chart-dot" style="animation-delay:2.1s" cx="390" cy="55" r="5" fill="#f2a94e"></circle>
       </svg>
-      <div class="chart-caption"><span>Raw data</span><span>Clear insight</span></div>
+      <div class="chart-caption"><span data-i18n="chart_raw">Raw data</span><span data-i18n="chart_clear">Clear insight</span></div>
     </div>
   </div>
 </section>
 <section id="about">
   <div class="wrap about-grid">
     <div class="about-stats">
-      <div>
-        <div class="stat-label">Based in</div>
-        <div class="stat-value">Egypt</div>
+       <div>
+        <div class="stat-label" data-i18n="about_based_label">Based in</div>
+        <div class="stat-value" data-i18n="about_based_value">Egypt</div>
       </div>
       <div>
-        <div class="stat-label">Studying</div>
-        <div class="stat-value">CS &amp; AI — Menoufia University</div>
+        <div class="stat-label" data-i18n="about_study_label">Studying</div>
+        <div class="stat-value" data-i18n="about_study_value">CS &amp; AI — Menoufia University</div>
       </div>
       <div>
-        <div class="stat-label">Currently</div>
-        <div class="stat-value">Data Analytics Trainee, DEPI</div>
+        <div class="stat-label" data-i18n="about_current_label">Currently</div>
+        <div class="stat-value" data-i18n="about_current_value">Data Analytics Trainee, DEPI</div>
       </div>
     </div>
     <div>
       <div class="head" style="margin-bottom:20px;">
-        <div class="tag">About</div>
-        <h2>Why I do this</h2>
+        <div class="tag" data-i18n="about_tag">About</div>
+        <h2 data-i18n="about_h2">Why I do this</h2>
       </div>
-      <p>I used to wonder why a shop owner would bother keeping records of every single sale — my best guess was that it was just in case a customer needed a refund, or something went wrong. It wasn't until I actually stepped into this field that I understood what that data really was: not just a backup plan, but the raw material behind almost every decision happening around us, in every business, at every scale.</p>
-      <p>Today, as a Computer Science &amp; AI student specializing in Data Analytics and a Data Analytics Trainee at DEPI, I clean raw datasets, build interactive Power BI dashboards, and use Excel, SQL, and Python to uncover the story hidden behind the numbers.</p>
-      <div class="usp">"I help small business owners turn messy spreadsheets into dashboards they can actually use — backed by a real Data Science background and hands-on training, not just tutorials."</div>
+      <p data-i18n="about_p1">I used to wonder why a shop owner would bother keeping records of every single sale — my best guess was that it was just in case a customer needed a refund, or something went wrong. It wasn't until I actually stepped into this field that I understood what that data really was: not just a backup plan, but the raw material behind almost every decision happening around us, in every business, at every scale.</p>
+      <p data-i18n="about_p2">Today, as a Computer Science &amp; AI student specializing in Data Analytics and a Data Analytics Trainee at DEPI, I clean raw datasets, build interactive Power BI dashboards, and use Excel, SQL, and Python to uncover the story hidden behind the numbers.</p>
+      <div class="usp" data-i18n="about_usp">"I help small business owners turn messy spreadsheets into dashboards they can actually use — backed by a real Data Science background and hands-on training, not just tutorials."</div>
     </div>
   </div>
 </section>
 
-<section id="education">
+       <div>
+        <div class="stat-label" data-i18n="about_based_label">Based in</div>
+        <div class="stat-value" data-i18n="about_based_value">Egypt</div>
+      </div>
+      <div>
+        <div class="stat-label" data-i18n="about_study_label">Studying</div>
+        <div class="stat-value" data-i18n="about_study_value">CS &amp; AI — Menoufia University</div>
+      </div>
+      <div>
+        <div class="stat-label" data-i18n="about_current_label">Currently</div>
+        <div class="stat-value" data-i18n="about_current_value">Data Analytics Trainee, DEPI</div><section id="education">
   <div class="wrap">
     <div class="head">
-      <div class="tag">Education</div>
-      <h2>Academic foundation</h2>
+      <div class="tag" data-i18n="edu_tag">Education</div>
+      <h2 data-i18n="edu_h2">Academic foundation</h2>
     </div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-date">2nd Year — In Progress</div>
-        <h3>B.Sc. Computer Science &amp; Artificial Intelligence</h3>
-        <div class="org">Menoufia National University — GPA 3.63 / 4.0</div>
+        <div class="tl-date" data-i18n="edu_date">2nd Year — In Progress</div>
+        <h3 data-i18n="edu_title">B.Sc. Computer Science &amp; Artificial Intelligence</h3>
+        <div class="org" data-i18n="edu_org">Menoufia National University — GPA 3.63 / 4.0</div>
       </div>
     </div>
   </div>
 </section>
+      </div>
+    </div>
+    <div>
+      <div class="head" style="margin-bottom:20px;">
+        <div class="tag" data-i18n="about_tag">About</div>
+        <h2 data-i18n="about_h2">Why I do this</h2>
+      </div>
+      <p data-i18n="about_p1">I used to wonder why a shop owner would bother keeping records of every single sale — my best guess was that it was just in case a customer needed a refund, or something went wrong. It wasn't until I actually stepped into this field that I understood what that data really was: not just a backup plan, but the raw material behind almost every decision happening around us, in every business, at every scale.</p>
+      <p data-i18n="about_p2">Today, as a Computer Science &amp; AI student specializing in Data Analytics and a Data Analytics Trainee at DEPI, I clean raw datasets, build interactive Power BI dashboards, and use Excel, SQL, and Python to uncover the story hidden behind the numbers.</p>
+      <div class="usp" data-i18n="about_usp">"I help small business owners turn messy spreadsheets into dashboards they can actually use — backed by a real Data Science background and hands-on training, not just tutorials."</div>
 <section id="skills">
   <div class="wrap">
     <div class="head">
