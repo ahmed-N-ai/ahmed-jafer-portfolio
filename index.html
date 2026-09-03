@@ -8,6 +8,14 @@
 <meta property="og:title" content="Ahmed Nasser Jafer — Data Analyst">
 <meta property="og:description" content="Turning raw data into decisions you can act on.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://ahmed-jafer-portfolio.vercel.app/">
+<meta property="og:image" content="https://ahmed-jafer-portfolio.vercel.app/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ahmed Nasser Jafer — Data Analyst">
+<meta name="twitter:description" content="Turning raw data into decisions you can act on.">
+<meta name="twitter:image" content="https://ahmed-jafer-portfolio.vercel.app/assets/images/og-image.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <title>Ahmed Nasser Jafer — Data Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,10 +23,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="manifest" href="site.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ahmed Nasser Jafer",
+  "jobTitle": "Data Analyst",
+  "url": "https://ahmed-jafer-portfolio.vercel.app/",
+  "email": "mailto:ahmed.jafer.ai@gmail.com",
+  "sameAs": ["https://linkedin.com/in/ahmed-Jafer"],
+  "knowsAbout": ["Excel", "Power BI", "SQL", "Python", "Data Analysis"]
+}
+</script>
 </head>
 <body>
 
 <canvas id="bg-canvas"></canvas>
+<div id="scroll-progress"></div>
 
 <header>
   <nav class="wrap">
@@ -55,9 +76,10 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div>
+      <div class="available-badge"><span class="pulse-dot"></span>Available for freelance work</div>
       <div class="eyebrow">Data Analyst</div>
       <h1>Turning raw data into decisions you can act on.</h1>
-      <p class="lead">Computer Science &amp; AI student specializing in Data Analytics — I clean messy datasets and build dashboards in Excel and Power BI that make your numbers make sense.</p>
+      <p class="lead" id="typed-lead" data-full-text="Computer Science &amp; AI student specializing in Data Analytics — I clean messy datasets and build dashboards in Excel and Power BI that make your numbers make sense."></p>
       <div class="btn-row">
         <a href="#projects" class="btn btn-primary">View my work</a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
