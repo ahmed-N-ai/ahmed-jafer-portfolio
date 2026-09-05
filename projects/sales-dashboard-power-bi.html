@@ -1,1 +1,139 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sales Dashboard — Power BI — Ahmed Nasser Jafer</title><meta name="description" content="Case study: Sales Dashboard built in Power BI from a ~3,000-row dataset with missing values and no explicit sales column."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg"></head><body><header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><a class="back" href="../index.html#projects">← Back to projects</a></div></header><main><section class="hero"><div class="wrap"><div class="eyebrow">Case Study · Power BI</div><h1>Sales Dashboard</h1><p>Built a complete Power BI dashboard from a ~3,000-row dataset that did not even have a sales column to begin with.</p><div class="meta"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">Data Modeling</span><span class="tag">DAX</span><span class="tag">Star Schema</span></div><div class="hero-image"><img loading="eager" src="../assets/images/project-2.webp" alt="Sales dashboard built in Power BI" onclick="openBox(this.src)"></div></div></section><section class="wrap grid"><article class="content"><h2>The challenge</h2><p>This dataset was a different kind of challenge: around 3,000 rows brought into Power Query, with a very large number of missing values throughout — and no explicit sales column at all. The raw data only had unit price and quantity sold per order.</p><h2>The approach</h2><h3>1. Understand the raw data</h3><p>I first explored the data to understand the business behind it and identify what could be derived reliably from the available fields.</p><h3>2. Construct the core metric</h3><p>I built a proper Sales column by multiplying unit price by quantity.</p><h3>3. Clean and model</h3><p>After cleaning the missing values, I split the data into dimension and fact tables using a Star Schema approach, loaded the model into Power BI, and wrote DAX measures on top of it.</p><h3>4. Build the dashboard</h3><p>The dashboard includes KPI cards for sales, orders, and customers, a monthly sales trend, a top-customers ranking, a product-line breakdown, a deal-size donut chart, a territory comparison, and a country map.</p><h2>Result</h2><p>A full sales dashboard built from data where the core metric — sales — did not exist yet and had to be constructed first. It pushed me to think about the data model, not just the visuals, before building anything.</p><h2>What this project demonstrates</h2><ul><li>Deriving a business metric from raw fields</li><li>Power Query cleaning and preparation</li><li>Fact/dimension modeling in Power BI</li><li>DAX measure design</li><li>Dashboard storytelling across KPIs, trends, rankings, categories, territories, and geography</li></ul></article><aside class="sidebar"><div class="side-card"><b>Dataset</b><span>~3,000 rows</span></div><div class="side-card"><b>Key challenge</b><span>No explicit Sales column</span></div><div class="side-card"><b>Core calculation</b><span>Unit Price × Quantity Sold</span></div><div class="side-card"><b>Output</b><span>Interactive Power BI sales dashboard</span></div></aside></section><section class="wrap next"><a href="superstore-sales-dashboard.html"><span><small>Previous case study</small><br><b>Superstore Sales Dashboard · Excel</b></span><span>←</span></a></section></main><div class="lightbox" id="box" onclick="closeBox()"><span class="close">×</span><img id="boximg" alt="Dashboard enlarged" onclick="event.stopPropagation()"></div><script>function openBox(s){boximg.src=s;box.classList.add('open')}function closeBox(){box.classList.remove('open')}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()})</script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sales Dashboard — Power BI — Ahmed Nasser Jafer</title><meta name="description" content="Case study: Sales Dashboard built in Power BI from a ~3,000-row dataset with missing values and no explicit sales column."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg"></head><body>
+<header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><div style="display:flex;align-items:center;gap:18px;"><button id="lang-toggle" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language"><span id="lang-label">AR</span></button><a class="back" href="../index.html#projects" data-i18n="back_link">← Back to projects</a></div></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow" data-i18n="eyebrow">Case Study · Power BI</div>
+<h1 data-i18n="h1">Sales Dashboard</h1>
+<p data-i18n="intro">Built a complete Power BI dashboard from a ~3,000-row dataset that did not even have a sales column to begin with.</p>
+<div class="meta"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">Data Modeling</span><span class="tag">DAX</span><span class="tag">Star Schema</span></div>
+<div class="hero-image"><img loading="eager" src="../assets/images/project-2.webp" alt="Sales dashboard built in Power BI" onclick="openBox(this.src)"></div>
+</div></section>
+<section class="wrap grid">
+<article class="content">
+<h2 data-i18n="challenge_h2">The challenge</h2>
+<p data-i18n="challenge_p">This dataset was a different kind of challenge: around 3,000 rows brought into Power Query, with a very large number of missing values throughout — and no explicit sales column at all. The raw data only had unit price and quantity sold per order.</p>
+<h2 data-i18n="approach_h2">The approach</h2>
+<h3 data-i18n="step1_h3">1. Understand the raw data</h3>
+<p data-i18n="step1_p">I first explored the data to understand the business behind it and identify what could be derived reliably from the available fields.</p>
+<h3 data-i18n="step2_h3">2. Construct the core metric</h3>
+<p data-i18n="step2_p">I built a proper Sales column by multiplying unit price by quantity.</p>
+<h3 data-i18n="step3_h3">3. Clean and model</h3>
+<p data-i18n="step3_p">After cleaning the missing values, I split the data into dimension and fact tables using a Star Schema approach, loaded the model into Power BI, and wrote DAX measures on top of it.</p>
+<h3 data-i18n="step4_h3">4. Build the dashboard</h3>
+<p data-i18n="step4_p">The dashboard includes KPI cards for sales, orders, and customers, a monthly sales trend, a top-customers ranking, a product-line breakdown, a deal-size donut chart, a territory comparison, and a country map.</p>
+<h2 data-i18n="result_h2">Result</h2>
+<p data-i18n="result_p">A full sales dashboard built from data where the core metric — sales — did not exist yet and had to be constructed first. It pushed me to think about the data model, not just the visuals, before building anything.</p>
+<h2 data-i18n="demo_h2">What this project demonstrates</h2>
+<ul>
+<li data-i18n="demo_li1">Deriving a business metric from raw fields</li>
+<li data-i18n="demo_li2">Power Query cleaning and preparation</li>
+<li data-i18n="demo_li3">Fact/dimension modeling in Power BI</li>
+<li data-i18n="demo_li4">DAX measure design</li>
+<li data-i18n="demo_li5">Dashboard storytelling across KPIs, trends, rankings, categories, territories, and geography</li>
+</ul>
+</article>
+<aside class="sidebar">
+<div class="side-card"><b data-i18n="side1_b">Dataset</b><span data-i18n="side1_span">~3,000 rows</span></div>
+<div class="side-card"><b data-i18n="side2_b">Key challenge</b><span data-i18n="side2_span">No explicit Sales column</span></div>
+<div class="side-card"><b data-i18n="side3_b">Core calculation</b><span data-i18n="side3_span">Unit Price × Quantity Sold</span></div>
+<div class="side-card"><b data-i18n="side4_b">Output</b><span data-i18n="side4_span">Interactive Power BI sales dashboard</span></div>
+</aside>
+</section>
+<section class="wrap next"><a href="superstore-sales-dashboard.html"><span><small data-i18n="next_small">Previous case study</small><br><b data-i18n="next_title">Superstore Sales Dashboard · Excel</b></span><span id="next-arrow">←</span></a></section>
+</main>
+<div class="lightbox" id="box" onclick="closeBox()"><span class="close">×</span><img id="boximg" alt="Dashboard enlarged" onclick="event.stopPropagation()"></div>
+<script>
+function openBox(s){boximg.src=s;box.classList.add('open')}
+function closeBox(){box.classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
+
+const translations = {
+  en: {
+    back_link: "← Back to projects",
+    eyebrow: "Case Study · Power BI",
+    h1: "Sales Dashboard",
+    intro: "Built a complete Power BI dashboard from a ~3,000-row dataset that did not even have a sales column to begin with.",
+    challenge_h2: "The challenge",
+    challenge_p: "This dataset was a different kind of challenge: around 3,000 rows brought into Power Query, with a very large number of missing values throughout — and no explicit sales column at all. The raw data only had unit price and quantity sold per order.",
+    approach_h2: "The approach",
+    step1_h3: "1. Understand the raw data",
+    step1_p: "I first explored the data to understand the business behind it and identify what could be derived reliably from the available fields.",
+    step2_h3: "2. Construct the core metric",
+    step2_p: "I built a proper Sales column by multiplying unit price by quantity.",
+    step3_h3: "3. Clean and model",
+    step3_p: "After cleaning the missing values, I split the data into dimension and fact tables using a Star Schema approach, loaded the model into Power BI, and wrote DAX measures on top of it.",
+    step4_h3: "4. Build the dashboard",
+    step4_p: "The dashboard includes KPI cards for sales, orders, and customers, a monthly sales trend, a top-customers ranking, a product-line breakdown, a deal-size donut chart, a territory comparison, and a country map.",
+    result_h2: "Result",
+    result_p: "A full sales dashboard built from data where the core metric — sales — did not exist yet and had to be constructed first. It pushed me to think about the data model, not just the visuals, before building anything.",
+    demo_h2: "What this project demonstrates",
+    demo_li1: "Deriving a business metric from raw fields",
+    demo_li2: "Power Query cleaning and preparation",
+    demo_li3: "Fact/dimension modeling in Power BI",
+    demo_li4: "DAX measure design",
+    demo_li5: "Dashboard storytelling across KPIs, trends, rankings, categories, territories, and geography",
+    side1_b: "Dataset", side1_span: "~3,000 rows",
+    side2_b: "Key challenge", side2_span: "No explicit Sales column",
+    side3_b: "Core calculation", side3_span: "Unit Price × Quantity Sold",
+    side4_b: "Output", side4_span: "Interactive Power BI sales dashboard",
+    next_small: "Previous case study", next_title: "Superstore Sales Dashboard · Excel",
+    next_arrow: "←"
+  },
+  ar: {
+    back_link: "→ رجوع للمشاريع",
+    eyebrow: "دراسة حالة · Power BI",
+    h1: "لوحة بيانات المبيعات",
+    intro: "بنيت لوحة بيانات كاملة في Power BI من داتا حوالي 3,000 صف مكنش فيها أصلاً عمود مبيعات من الأساس.",
+    challenge_h2: "التحدي",
+    challenge_p: "الداتا دي كانت تحدي من نوع مختلف: حوالي 3,000 صف اتفتحوا في Power Query، وفيهم عدد كبير جدًا من القيم الناقصة — ومفيش عمود مبيعات صريح خالص. الداتا الخام كان فيها بس سعر الوحدة وعدد القطع المباعة لكل أوردر.",
+    approach_h2: "طريقة العمل",
+    step1_h3: "1. فهم البيانات الخام",
+    step1_p: "استكشفت الداتا الأول عشان أفهم طبيعة العمل وراها وأحدد إيه اللي ممكن أستنتجه بشكل موثوق من الحقول المتاحة.",
+    step2_h3: "2. بناء المقياس الأساسي",
+    step2_p: "بنيت عمود مبيعات صحيح عن طريق ضرب سعر الوحدة في الكمية.",
+    step3_h3: "3. التنظيف والنمذجة",
+    step3_p: "بعد تنظيف القيم الناقصة، قسّمت الداتا لجداول dimension و fact باستخدام أسلوب Star Schema، حمّلت النموذج في Power BI، وكتبت مقاييس DAX عليه.",
+    step4_h3: "4. بناء الداشبورد",
+    step4_p: "الداشبورد فيه KPI cards للمبيعات والأوردرات والعملاء، اتجاه شهري للمبيعات، ترتيب أفضل العملاء، تحليل خطوط المنتجات، دائرة أحجام الصفقات، مقارنة مناطق، وخريطة دول.",
+    result_h2: "النتيجة",
+    result_p: "لوحة بيانات مبيعات كاملة اتبنت من داتا المقياس الأساسي فيها — المبيعات — مكنش موجود أصلاً ولازم يتبني الأول. الموضوع خلاني أفكر في نموذج البيانات، مش بس الشكل المرئي، قبل ما أبني أي حاجة.",
+    demo_h2: "المشروع ده بيوضح إيه",
+    demo_li1: "استنتاج مقياس عمل من حقول خام",
+    demo_li2: "تنظيف وتجهيز البيانات بـ Power Query",
+    demo_li3: "نمذجة Fact/dimension في Power BI",
+    demo_li4: "تصميم مقاييس DAX",
+    demo_li5: "سرد قصة البيانات عبر KPIs واتجاهات وترتيبات وفئات ومناطق وجغرافيا",
+    side1_b: "الداتا", side1_span: "حوالي 3,000 صف",
+    side2_b: "التحدي الأساسي", side2_span: "مفيش عمود مبيعات صريح",
+    side3_b: "الحساب الأساسي", side3_span: "سعر الوحدة × الكمية المباعة",
+    side4_b: "المخرج", side4_span: "لوحة بيانات مبيعات تفاعلية في Power BI",
+    next_small: "دراسة الحالة السابقة", next_title: "لوحة بيانات Superstore · Excel",
+    next_arrow: "→"
+  }
+};
+
+function applyLanguage(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key] !== undefined){
+      el.textContent = translations[lang][key];
+    }
+  });
+  const arrow = document.getElementById('next-arrow');
+  if(arrow) arrow.textContent = translations[lang].next_arrow;
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  const label = document.getElementById('lang-label');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+  localStorage.setItem('portfolio-lang', lang);
+}
+function toggleLang(){
+  const current = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+  applyLanguage(current === 'ar' ? 'en' : 'ar');
+}
+(function(){
+  const saved = localStorage.getItem('portfolio-lang');
+  if(saved === 'ar') applyLanguage('ar');
+})();
+</script>
+</body></html>
