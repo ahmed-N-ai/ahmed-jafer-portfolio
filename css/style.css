@@ -63,9 +63,9 @@
   .nav-cta{
     background:var(--navy);color:#fff;padding:9px 18px;border-radius:8px;
     font-size:0.88rem;font-weight:600;text-decoration:none;transition:background .2s;
+    flex-shrink:0;white-space:nowrap;
   }
   .nav-cta:hover{background:var(--blue);}
-  .nav-cta{flex-shrink:0;white-space:nowrap;}
   .theme-toggle{
     background:none;border:1.5px solid var(--line);color:var(--ink);
     width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
