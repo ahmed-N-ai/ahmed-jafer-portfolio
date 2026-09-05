@@ -370,7 +370,5 @@
 /* RTL base support */
 html[dir="rtl"] body{direction:rtl;text-align:right;}
 html[dir="rtl"] .btn-row{flex-direction:row-reverse;}
-html[dir="rtl"] .case-line{grid-template-columns:1fr 110px;}
 html[dir="rtl"] .timeline{padding-left:0;padding-right:28px;border-left:none;border-right:2px solid var(--line);}
 html[dir="rtl"] .tl-item::before{left:auto;right:-33.5px;}
-html[dir="rtl"] .skill-row{grid-template-columns:1fr 52px;}
