@@ -402,6 +402,7 @@ const translations = {
     contact_call: "Call",
     contact_linkedin: "LinkedIn",
     footer_text: "© 2026 Ahmed Nasser Jafer. Built with care, one dataset at a time.",
+    visits_label: "people have visited this portfolio",
     site_status_text: "Available for data analytics projects",
     toast_copied: "Email copied to clipboard!"
   },
@@ -548,7 +549,7 @@ const translations = {
     contact_whatsapp: "واتساب",
     contact_call: "اتصال",
     contact_linkedin: "لينكدإن",
-    footer_text: "© 2026 أحمد ناصر جعفر. اتبنى بعناية، مجموعة بيانات في كل مرة.",
+    footer_text: "© 2026 أحمد ناصر جعفر. اتبنى بعناية، مجموعة بيانات في كل مرة.",visits_label: "زيارة لهذا البورتفوليو",
     site_status_text: "متاح لمشاريع تحليل البيانات",
     toast_copied: "تم نسخ الإيميل!"
   }
