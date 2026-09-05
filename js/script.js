@@ -259,6 +259,7 @@ function typeLeadText(text){
 // ---------- Language toggle (EN / AR) ----------
 const translations = {
   en: {
+    brand_name: "Ahmed Nasser Jafer",
     nav_about: "About",
     nav_skills: "Skills",
     nav_experience: "Experience",
@@ -405,6 +406,7 @@ const translations = {
     toast_copied: "Email copied to clipboard!"
   },
   ar: {
+    brand_name: "أحمد ناصر جعفر",
     nav_about: "نبذة عني",
     nav_skills: "المهارات",
     nav_experience: "الخبرة",
