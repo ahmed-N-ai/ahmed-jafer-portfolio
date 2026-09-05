@@ -229,22 +229,7 @@ window.addEventListener('scroll', () => {
   bar.style.width = pct + '%';
 });
 
-// Custom cursor
-(function(){
-  if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
-    const cursor = document.createElement('div');
-    cursor.id = 'custom-cursor';
-    document.body.appendChild(cursor);
-    window.addEventListener('mousemove', (e)=>{
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-    document.querySelectorAll('a, button, .project, .service-card').forEach(el=>{
-      el.addEventListener('mouseenter', ()=>cursor.classList.add('grow'));
-      el.addEventListener('mouseleave', ()=>cursor.classList.remove('grow'));
-    });
-  }
-})();
+
 
 // Typing effect on hero tagline
 function typeLeadText(text){
