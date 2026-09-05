@@ -404,14 +404,14 @@
 </section>
 <section id="testimonials">
   <div class="wrap">
-    <div class="head"><div class="tag">Testimonials</div><h2>What people say</h2></div>
+    <div class="head"><div class="tag" data-i18n="testi_tag">Testimonials</div><h2 data-i18n="testi_h2">What people say</h2></div>
     <div class="testimonial-cards" id="testimonial-cards">
-      <p class="testimonial-empty">Loading feedback…</p>
+      <p class="testimonial-empty" data-i18n="testi_loading">Loading feedback…</p>
     </div>
     <div class="feedback-form-wrap">
-      <h3>Leave your feedback</h3>
+      <h3 data-i18n="testi_form_h3">Leave your feedback</h3>
       <form id="feedback-form">
-        <input type="text" id="fb-name" placeholder="Your name" required maxlength="60">
+        <input type="text" id="fb-name" placeholder="Your name" data-i18n-placeholder="testi_name_placeholder" required maxlength="60">
         <div class="star-rating" id="star-rating">
           <span data-value="1">★</span>
           <span data-value="2">★</span>
@@ -419,8 +419,8 @@
           <span data-value="4">★</span>
           <span data-value="5">★</span>
         </div>
-        <textarea id="fb-message" placeholder="Your feedback..." required maxlength="300" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        <textarea id="fb-message" placeholder="Your feedback..." data-i18n-placeholder="testi_message_placeholder" required maxlength="300" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary" data-i18n="testi_submit_btn">Submit Feedback</button>
         <p id="fb-status"></p>
       </form>
     </div>
@@ -430,36 +430,36 @@
 
   <div class="wrap">
     <div class="contact-band">
-      <h2>Have messy data sitting in a spreadsheet?</h2>
-      <p>Let's talk about turning it into a dashboard you can actually use to make decisions.</p>
-      <div class="btn-row contact-actions"><a href="mailto:ahmed.jafer.ai@gmail.com" class="btn btn-amber">Email me</a><a href="resume/Ahmed-Nasser-Jafer-CV.pdf" class="btn btn-ghost contact-cv" target="_blank" rel="noopener">View CV</a></div>
+      <h2 data-i18n="contact_h2">Have messy data sitting in a spreadsheet?</h2>
+      <p data-i18n="contact_p">Let's talk about turning it into a dashboard you can actually use to make decisions.</p>
+      <div class="btn-row contact-actions"><a href="mailto:ahmed.jafer.ai@gmail.com" class="btn btn-amber" data-i18n="contact_email_btn">Email me</a><a href="resume/Ahmed-Nasser-Jafer-CV.pdf" class="btn btn-ghost contact-cv" target="_blank" rel="noopener" data-i18n="contact_viewcv_btn">View CV</a></div>
       <div class="contact-list">
         <a href="mailto:ahmed.jafer.ai@gmail.com">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
-          Gmail
+          <span data-i18n="contact_gmail">Gmail</span>
         </a>
         <a href="#" onclick="copyEmail(event)" title="Copy email address">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          Copy
+          <span data-i18n="contact_copy">Copy</span>
         </a>
         <a href="https://wa.me/201063846682" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm0 18.06h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 01-1.26-4.39c0-4.55 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.24-8.25 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.73 2.64 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
-          WhatsApp
+          <span data-i18n="contact_whatsapp">WhatsApp</span>
         </a>
         <a href="tel:+201063846682">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          Call
+          <span data-i18n="contact_call">Call</span>
         </a>
         <a href="https://linkedin.com/in/ahmed-Jafer" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.7 8 21 10.1 21 13.55V23h-4v-8.4c0-2-.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.45V23h-4V8z"/></svg>
-          LinkedIn
+          <span data-i18n="contact_linkedin">LinkedIn</span>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<footer><div class="footer-inner"><div>© 2026 Ahmed Nasser Jafer. Built with care, one dataset at a time.</div></div></footer>
+<footer><div class="footer-inner"><div data-i18n="footer_text">© 2026 Ahmed Nasser Jafer. Built with care, one dataset at a time.</div></div></footer>
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="" alt="Enlarged dashboard screenshot" onclick="event.stopPropagation()">
