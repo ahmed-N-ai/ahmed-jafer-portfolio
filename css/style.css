@@ -139,7 +139,8 @@
   /* SERVICES */
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   @media (max-width:860px){ .services-grid{grid-template-columns:1fr;} }
-  .service-card{background:var(--card);border-radius:var(--radius);padding:28px;border:1px solid var(--line);}
+  .service-card{background:var(--card);border-radius:var(--radius);padding:28px;border:1px solid var(--line);transition:transform .2s ease, box-shadow .2s ease;}
+  .service-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(47,95,222,0.12);}
   .service-card h3{font-size:1.08rem;color:var(--heading);margin:0 0 10px;}
   .service-card p{color:var(--ink-soft);font-size:0.94rem;margin:0;}
   .service-index{font-family:'Space Grotesk',sans-serif;color:var(--blue);font-weight:700;font-size:0.85rem;margin-bottom:14px;display:block;}
@@ -224,7 +225,8 @@
   footer{padding:36px 0;text-align:center;color:var(--ink-soft);font-size:0.85rem;}
 
   /* 3D TILT */
-  .project{transition:transform .12s ease;transform-style:preserve-3d;will-change:transform;}
+  .project{transition:transform .12s ease, box-shadow .2s ease;transform-style:preserve-3d;will-change:transform;}
+  .project:hover{box-shadow:0 14px 30px rgba(47,95,222,0.14);}
 
   /* SKILL PROJECT COUNTERS */
   .skill-counters{
@@ -365,3 +367,5 @@ html[dir="rtl"] .tl-item::before{left:auto;right:-33.5px;}
 html[dir="rtl"] .navlinks{margin:0 100px 0 0;}
 .visit-counter{margin-top:8px;color:var(--ink-soft);font-size:0.8rem;}
 #visit-count{color:var(--blue);font-weight:700;}
+.process-grid article,.proof-grid article,.testimonial-card{transition:transform .2s ease, box-shadow .2s ease;}
+.process-grid article:hover,.proof-grid article:hover,.testimonial-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(47,95,222,0.12);}
