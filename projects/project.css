@@ -6,3 +6,7 @@ html.dark{--bg:#0b1120;--card:#141c30;--ink:#e7ecf7;--ink-soft:#93a0bd;--line:#2
 html[dir="rtl"] body{direction:rtl;text-align:right;}
 html[dir="rtl"] .content ul{padding-left:0;padding-right:20px;}
 html[dir="rtl"] .next a{flex-direction:row-reverse;}
+.live-report-box{margin:40px 0;}
+.live-report-label{font-size:.85rem;font-weight:600;color:var(--blue);margin-bottom:12px;}
+.live-report-frame{position:relative;width:100%;padding-top:62.25%;border-radius:12px;overflow:hidden;border:1px solid var(--line);}
+.live-report-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}

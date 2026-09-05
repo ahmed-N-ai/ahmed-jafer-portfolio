@@ -8,6 +8,14 @@
 <div class="meta"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">Data Modeling</span><span class="tag">DAX</span><span class="tag">Star Schema</span></div>
 <div class="hero-image"><img loading="eager" src="../assets/images/project-2.webp" alt="Sales dashboard built in Power BI" onclick="openBox(this.src)"></div>
 </div></section>
+<section class="wrap">
+<div class="live-report-box">
+  <div class="live-report-label" data-i18n="live_label">🔴 Live interactive report — try the real filters yourself</div>
+  <div class="live-report-frame">
+    <iframe title="Ahmed Nasser Sales" src="https://app.powerbi.com/view?r=eyJrIjoiZGEzNzJjZTYtZDI1Mi00ZTM3LWIyNDktZmIyNDc1YzIwODEyIiwidCI6IjIwODJkZTQ2LTFhZmEtNGI2NC1hNDQwLTY1NThmODBlOTg0MCIsImMiOjh9" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
+  </div>
+</div>
+</section>
 <section class="wrap grid">
 <article class="content">
 <h2 data-i18n="challenge_h2">The challenge</h2>
@@ -50,6 +58,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
 const translations = {
   en: {
     back_link: "← Back to projects",
+    live_label: "🔴 Live interactive report — try the real filters yourself",
     eyebrow: "Case Study · Power BI",
     h1: "Sales Dashboard",
     intro: "Built a complete Power BI dashboard from a ~3,000-row dataset that did not even have a sales column to begin with.",
@@ -81,6 +90,7 @@ const translations = {
   },
   ar: {
     back_link: "→ رجوع للمشاريع",
+    live_label: "🔴 تقرير تفاعلي حقيقي — جرّب الفلاتر بنفسك",
     eyebrow: "دراسة حالة · Power BI",
     h1: "لوحة بيانات المبيعات",
     intro: "بنيت لوحة بيانات كاملة في Power BI من داتا حوالي 3,000 صف مكنش فيها أصلاً عمود مبيعات من الأساس.",
