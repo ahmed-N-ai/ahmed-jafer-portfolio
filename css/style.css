@@ -54,7 +54,7 @@
   }
   nav.wrap{display:flex;align-items:center;justify-content:space-between;height:72px;padding-top:0;padding-bottom:0;}
   .brand{font-weight:700;font-size:1.05rem;color:var(--heading);text-decoration:none;letter-spacing:-0.01em;white-space:nowrap;flex-shrink:0;}
-  .navlinks{display:flex;gap:32px;list-style:none;margin:0;padding:0;}
+
   .navlinks a{
     text-decoration:none;color:var(--ink-soft);font-size:0.84rem;font-weight:500;flex-shrink:0;
     padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s, border-color .2s;
