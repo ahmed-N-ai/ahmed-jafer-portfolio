@@ -1,1 +1,136 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Superstore Sales Dashboard — Ahmed Nasser Jafer</title><meta name="description" content="Case study: Superstore Sales Dashboard built with Excel, Power Query, data modeling, DAX, PivotTables and slicers."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg"></head><body><header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><a class="back" href="../index.html#projects">← Back to projects</a></div></header><main><section class="hero"><div class="wrap"><div class="eyebrow">Case Study · Excel</div><h1>Superstore Sales Dashboard</h1><p>Cleaned and modeled a ~10,000-row retail dataset spread across three related tables, then built a fully interactive Excel dashboard on top of it.</p><div class="meta"><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">Data Model</span><span class="tag">DAX</span><span class="tag">Pivot Tables</span><span class="tag">Slicers</span></div><div class="hero-image"><img loading="eager" src="../assets/images/project-1.webp" alt="Superstore sales dashboard built in Excel" onclick="openBox(this.src)"></div></div></section><section class="wrap grid"><article class="content"><h2>The challenge</h2><p>The client handed over ~10,000 rows of orders data split across three separate tables — orders, returns, and regional managers — with no relationships between them and missing values scattered across several columns, including a postal code missing for an entire region.</p><h2>The approach</h2><h3>1. Explore before transforming</h3><p>I explored the raw data first to understand the business behind it and identify where the model could break.</p><h3>2. Clean systematically</h3><p>I used Power Query to clean the dataset. For the missing postal code, I checked whether the region had one at all. When several possible codes came up, I did not guess; I confirmed the exact value with the client directly before entering it.</p><h3>3. Build the model</h3><p>I restructured the Orders table into a proper dimension-and-fact model, removed duplicated fields, and connected all three tables into a Star Schema with clean one-to-many relationships.</p><h3>4. Build the analysis layer</h3><p>I wrote DAX measures to keep the dashboard fast, then built PivotTables, PivotCharts, KPI cards, and linked slicers focused mainly on sales performance.</p><h2>Result</h2><p>A fast, well-structured dashboard built on a clean data model — with every value traceable and confirmed, not filled in by guesswork. It was also the largest dataset I'd worked with at that point, and a real step up in handling data at scale.</p><h2>What this project demonstrates</h2><ul><li>Data preparation with Power Query</li><li>Relational thinking and Star Schema modeling</li><li>Reusable DAX measures</li><li>Interactive Excel dashboard design</li><li>Careful handling of uncertain data instead of inventing values</li></ul></article><aside class="sidebar"><div class="side-card"><b>Dataset</b><span>~10,000 rows across three tables</span></div><div class="side-card"><b>Primary output</b><span>Interactive Excel sales dashboard</span></div><div class="side-card"><b>Core modeling</b><span>Fact + dimensions · one-to-many relationships</span></div></aside></section><section class="wrap next"><a href="sales-dashboard-power-bi.html"><span><small>Next case study</small><br><b>Sales Dashboard · Power BI</b></span><span>→</span></a></section></main><div class="lightbox" id="box" onclick="closeBox()"><span class="close">×</span><img id="boximg" alt="Dashboard enlarged" onclick="event.stopPropagation()"></div><script>function openBox(s){boximg.src=s;box.classList.add('open')}function closeBox(){box.classList.remove('open')}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()})</script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Superstore Sales Dashboard — Ahmed Nasser Jafer</title><meta name="description" content="Case study: Superstore Sales Dashboard built with Excel, Power Query, data modeling, DAX, PivotTables and slicers."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg"></head><body>
+<header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><div style="display:flex;align-items:center;gap:18px;"><button id="lang-toggle" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language"><span id="lang-label">AR</span></button><a class="back" href="../index.html#projects" data-i18n="back_link">← Back to projects</a></div></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow" data-i18n="eyebrow">Case Study · Excel</div>
+<h1 data-i18n="h1">Superstore Sales Dashboard</h1>
+<p data-i18n="intro">Cleaned and modeled a ~10,000-row retail dataset spread across three related tables, then built a fully interactive Excel dashboard on top of it.</p>
+<div class="meta"><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">Data Model</span><span class="tag">DAX</span><span class="tag">Pivot Tables</span><span class="tag">Slicers</span></div>
+<div class="hero-image"><img loading="eager" src="../assets/images/project-1.webp" alt="Superstore sales dashboard built in Excel" onclick="openBox(this.src)"></div>
+</div></section>
+<section class="wrap grid">
+<article class="content">
+<h2 data-i18n="challenge_h2">The challenge</h2>
+<p data-i18n="challenge_p">The client handed over ~10,000 rows of orders data split across three separate tables — orders, returns, and regional managers — with no relationships between them and missing values scattered across several columns, including a postal code missing for an entire region.</p>
+<h2 data-i18n="approach_h2">The approach</h2>
+<h3 data-i18n="step1_h3">1. Explore before transforming</h3>
+<p data-i18n="step1_p">I explored the raw data first to understand the business behind it and identify where the model could break.</p>
+<h3 data-i18n="step2_h3">2. Clean systematically</h3>
+<p data-i18n="step2_p">I used Power Query to clean the dataset. For the missing postal code, I checked whether the region had one at all. When several possible codes came up, I did not guess; I confirmed the exact value with the client directly before entering it.</p>
+<h3 data-i18n="step3_h3">3. Build the model</h3>
+<p data-i18n="step3_p">I restructured the Orders table into a proper dimension-and-fact model, removed duplicated fields, and connected all three tables into a Star Schema with clean one-to-many relationships.</p>
+<h3 data-i18n="step4_h3">4. Build the analysis layer</h3>
+<p data-i18n="step4_p">I wrote DAX measures to keep the dashboard fast, then built PivotTables, PivotCharts, KPI cards, and linked slicers focused mainly on sales performance.</p>
+<h2 data-i18n="result_h2">Result</h2>
+<p data-i18n="result_p">A fast, well-structured dashboard built on a clean data model — with every value traceable and confirmed, not filled in by guesswork. It was also the largest dataset I'd worked with at that point, and a real step up in handling data at scale.</p>
+<h2 data-i18n="demo_h2">What this project demonstrates</h2>
+<ul>
+<li data-i18n="demo_li1">Data preparation with Power Query</li>
+<li data-i18n="demo_li2">Relational thinking and Star Schema modeling</li>
+<li data-i18n="demo_li3">Reusable DAX measures</li>
+<li data-i18n="demo_li4">Interactive Excel dashboard design</li>
+<li data-i18n="demo_li5">Careful handling of uncertain data instead of inventing values</li>
+</ul>
+</article>
+<aside class="sidebar">
+<div class="side-card"><b data-i18n="side1_b">Dataset</b><span data-i18n="side1_span">~10,000 rows across three tables</span></div>
+<div class="side-card"><b data-i18n="side2_b">Primary output</b><span data-i18n="side2_span">Interactive Excel sales dashboard</span></div>
+<div class="side-card"><b data-i18n="side3_b">Core modeling</b><span data-i18n="side3_span">Fact + dimensions · one-to-many relationships</span></div>
+</aside>
+</section>
+<section class="wrap next"><a href="sales-dashboard-power-bi.html"><span><small data-i18n="next_small">Next case study</small><br><b data-i18n="next_title">Sales Dashboard · Power BI</b></span><span id="next-arrow">→</span></a></section>
+</main>
+<div class="lightbox" id="box" onclick="closeBox()"><span class="close">×</span><img id="boximg" alt="Dashboard enlarged" onclick="event.stopPropagation()"></div>
+<script>
+function openBox(s){boximg.src=s;box.classList.add('open')}
+function closeBox(){box.classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
+
+const translations = {
+  en: {
+    back_link: "← Back to projects",
+    eyebrow: "Case Study · Excel",
+    h1: "Superstore Sales Dashboard",
+    intro: "Cleaned and modeled a ~10,000-row retail dataset spread across three related tables, then built a fully interactive Excel dashboard on top of it.",
+    challenge_h2: "The challenge",
+    challenge_p: "The client handed over ~10,000 rows of orders data split across three separate tables — orders, returns, and regional managers — with no relationships between them and missing values scattered across several columns, including a postal code missing for an entire region.",
+    approach_h2: "The approach",
+    step1_h3: "1. Explore before transforming",
+    step1_p: "I explored the raw data first to understand the business behind it and identify where the model could break.",
+    step2_h3: "2. Clean systematically",
+    step2_p: "I used Power Query to clean the dataset. For the missing postal code, I checked whether the region had one at all. When several possible codes came up, I did not guess; I confirmed the exact value with the client directly before entering it.",
+    step3_h3: "3. Build the model",
+    step3_p: "I restructured the Orders table into a proper dimension-and-fact model, removed duplicated fields, and connected all three tables into a Star Schema with clean one-to-many relationships.",
+    step4_h3: "4. Build the analysis layer",
+    step4_p: "I wrote DAX measures to keep the dashboard fast, then built PivotTables, PivotCharts, KPI cards, and linked slicers focused mainly on sales performance.",
+    result_h2: "Result",
+    result_p: "A fast, well-structured dashboard built on a clean data model — with every value traceable and confirmed, not filled in by guesswork. It was also the largest dataset I'd worked with at that point, and a real step up in handling data at scale.",
+    demo_h2: "What this project demonstrates",
+    demo_li1: "Data preparation with Power Query",
+    demo_li2: "Relational thinking and Star Schema modeling",
+    demo_li3: "Reusable DAX measures",
+    demo_li4: "Interactive Excel dashboard design",
+    demo_li5: "Careful handling of uncertain data instead of inventing values",
+    side1_b: "Dataset", side1_span: "~10,000 rows across three tables",
+    side2_b: "Primary output", side2_span: "Interactive Excel sales dashboard",
+    side3_b: "Core modeling", side3_span: "Fact + dimensions · one-to-many relationships",
+    next_small: "Next case study", next_title: "Sales Dashboard · Power BI",
+    next_arrow: "→"
+  },
+  ar: {
+    back_link: "→ رجوع للمشاريع",
+    eyebrow: "دراسة حالة · Excel",
+    h1: "لوحة بيانات مبيعات Superstore",
+    intro: "نظّفت وعملت نمذجة لداتا مبيعات حوالي 10,000 صف موزعة على 3 جداول مرتبطة، وبنيت عليها لوحة بيانات تفاعلية كاملة في Excel.",
+    challenge_h2: "التحدي",
+    challenge_p: "العميل سلّمني حوالي 10,000 صف بيانات أوردرات مقسّمة على 3 جداول منفصلة — أوردرات، مرتجعات، ومديري مناطق — من غير أي علاقات بينهم، وقيم ناقصة منتشرة في أعمدة كتير، منها كود بريدي ناقص لمنطقة كاملة.",
+    approach_h2: "طريقة العمل",
+    step1_h3: "1. الاستكشاف قبل التحويل",
+    step1_p: "استكشفت البيانات الخام الأول عشان أفهم طبيعة العمل ورا الداتا وأحدد فين ممكن النموذج يتكسر.",
+    step2_h3: "2. التنظيف بشكل منهجي",
+    step2_p: "استخدمت Power Query لتنظيف الداتا. بالنسبة للكود البريدي الناقص، شفت لو المنطقة أصلاً ليها كود من الأساس. لما طلعلي أكتر من كود محتمل، ماخمنتش؛ أكدت القيمة الصح مع العميل مباشرة قبل ما أدخلها.",
+    step3_h3: "3. بناء النموذج",
+    step3_p: "أعدت هيكلة جدول الأوردرات لنموذج dimension-and-fact صحيح، شلت الحقول المكررة، وربطت الجداول التلاتة في Star Schema بعلاقات one-to-many نضيفة.",
+    step4_h3: "4. بناء طبقة التحليل",
+    step4_p: "كتبت مقاييس DAX عشان اللوحة تفضل سريعة، وبعدين بنيت PivotTables و PivotCharts وKPI cards وسلايسرز مربوطة ببعض، مركّز بشكل أساسي على أداء المبيعات.",
+    result_h2: "النتيجة",
+    result_p: "لوحة بيانات سريعة ومنظمة مبنية على نموذج بيانات نضيف — كل قيمة فيها قابلة للتتبع والتأكيد، مش متخمنة. كانت كمان أكبر داتا اشتغلت عليها لحد وقتها، وخطوة حقيقية في التعامل مع البيانات بحجم أكبر.",
+    demo_h2: "المشروع ده بيوضح إيه",
+    demo_li1: "تجهيز البيانات باستخدام Power Query",
+    demo_li2: "التفكير العلائقي ونمذجة Star Schema",
+    demo_li3: "مقاييس DAX قابلة لإعادة الاستخدام",
+    demo_li4: "تصميم لوحة بيانات تفاعلية في Excel",
+    demo_li5: "التعامل بحرص مع البيانات الغير مؤكدة بدل اختراع قيم",
+    side1_b: "الداتا", side1_span: "حوالي 10,000 صف موزعة على 3 جداول",
+    side2_b: "المخرج الأساسي", side2_span: "لوحة بيانات مبيعات تفاعلية في Excel",
+    side3_b: "النمذجة الأساسية", side3_span: "Fact + dimensions · علاقات one-to-many",
+    next_small: "دراسة الحالة التالية", next_title: "لوحة بيانات المبيعات · Power BI",
+    next_arrow: "←"
+  }
+};
+
+function applyLanguage(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key] !== undefined){
+      el.textContent = translations[lang][key];
+    }
+  });
+  const arrow = document.getElementById('next-arrow');
+  if(arrow) arrow.textContent = translations[lang].next_arrow;
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  const label = document.getElementById('lang-label');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+  localStorage.setItem('portfolio-lang', lang);
+}
+function toggleLang(){
+  const current = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+  applyLanguage(current === 'ar' ? 'en' : 'ar');
+}
+(function(){
+  const saved = localStorage.getItem('portfolio-lang');
+  if(saved === 'ar') applyLanguage('ar');
+})();
+</script>
+</body></html>
