@@ -232,12 +232,16 @@ window.addEventListener('scroll', () => {
 
 
 // Typing effect on hero tagline
+let typeLeadToken = 0;
 function typeLeadText(text){
   const el = document.getElementById('typed-lead');
   if(!el) return;
   el.setAttribute('data-full-text', text);
+  typeLeadToken++;
+  const myToken = typeLeadToken;
   let i = 0;
   function type(){
+    if(myToken !== typeLeadToken) return;
     if(i <= text.length){
       el.innerHTML = text.slice(0, i);
       i++;
