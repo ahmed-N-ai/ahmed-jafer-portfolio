@@ -1,0 +1,173 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Superstore Sales & Profitability Analytics — Power BI — Ahmed Nasser Jafer</title><meta name="description" content="Case study: a full Power BI data model with 8 tables, 14 DAX measures, 4 calculated columns, and 3 interactive report pages including drill-through."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg"></head><body>
+<header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><div style="display:flex;align-items:center;gap:18px;"><button id="lang-toggle" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language"><span id="lang-label">AR</span></button><a class="back" href="../index.html#projects" data-i18n="back_link">← Back to projects</a></div></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow" data-i18n="eyebrow">Case Study · Power BI · Data Modeling</div>
+<h1 data-i18n="h1">Superstore Sales & Profitability Analytics</h1>
+<p data-i18n="intro">A full Power BI project built from the same Superstore dataset as the Excel project — this time focused on a proper star-schema data model, 14 DAX measures, and 3 interactive report pages with drill-through.</p>
+<div class="meta"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">Star Schema</span><span class="tag">DAX</span><span class="tag">Drill-through</span></div>
+<div class="hero-image"><img loading="eager" src="../assets/images/project-3.webp" alt="Superstore Sales & Profitability Analytics — Executive Analysis page" onclick="openBox(this.src)"></div>
+</div></section>
+
+<section class="wrap">
+<div class="live-report-box">
+  <div class="live-report-label" data-i18n="live_label">🔴 Live interactive report — try the real filters yourself</div>
+  <div class="live-report-frame">
+    <iframe title="Ahmed Nasser Mini Project 2" src="https://app.powerbi.com/view?r=eyJrIjoiOGRkZDg3YzEtYjExMC00OGI4LTk3YmUtYTZmNDE5MDg4Y2ZhIiwidCI6IjIwODJkZTQ2LTFhZmEtNGI2NC1hNDQwLTY1NThmODBlOTg0MCIsImMiOjh9" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
+  </div>
+</div>
+</section>
+
+<section class="wrap grid">
+<article class="content">
+
+<h2 data-i18n="challenge_h2">The challenge</h2>
+<p data-i18n="challenge_p">This project used the exact same raw Superstore data as the Excel dashboard, but the goal was different: build a proper relational data model from scratch (not just clean and visualize), handle real data-quality problems at the modeling level, and produce a full multi-page analytical report with drill-through — all backed by DAX instead of formulas.</p>
+
+<h2 data-i18n="approach_h2">The approach</h2>
+
+<h3 data-i18n="step1_h3">1. Import and shape with Power Query</h3>
+<p data-i18n="step1_p">Imported the workbook's three sheets (Orders, People, Returns), fixed data types (dates, decimals, and kept Postal Code as text to preserve leading zeros), and removed fully blank rows. In the Returns table, I found 800 rows but only 296 unique Order IDs — duplicates were removed so the table could join cleanly into a one-to-many relationship.</p>
+
+<h3 data-i18n="step2_h3">2. Build a real star schema</h3>
+<p data-i18n="step2_p">Split the single Orders table into a Fact table and five dimension tables: Dim_Customer, Dim_Product, Dim_ShipMode, Dim_Address, and Dim_Date. Two data-quality problems came up here specifically. First, some Product IDs were linked to more than one completely different product name — so I built a composite key (Product ID + Product Name) instead of trusting Product ID alone. Second, there was no ready-made location key, so I statistically verified that City + Postal Code was 100% unique before using it as a composite key for the address dimension. Dim_Date was built entirely with Power Query M code to guarantee a continuous calendar with no gaps, which I verified was necessary since real gaps existed in the order and ship dates.</p>
+
+<h3 data-i18n="step3_h3">3. Add calculated columns for real business logic</h3>
+<p data-i18n="step3_p">Added Shipping Delay (day difference between order and ship date) and a Profitability Category that classifies every row into Loss, Low, Medium, Good, or High profit — not with arbitrary cutoffs, but using statistical quartiles calculated dynamically from the actual positive-margin rows. A supporting Row Margin column and a numeric Rank Profitability column were added to keep the sorting logic correct and avoid a circular dependency between the two.</p>
+
+<h3 data-i18n="step4_h3">4. Write 14 DAX measures and build the report</h3>
+<p data-i18n="step4_p">Beyond the basics (Total Sales, Total Profit, Profit Margin %), I built a Running Total using ALLSELECTED, a Year-over-Year Growth % using SAMEPERIODLASTYEAR, a dynamic Top 10 Sales measure driven by RANKX rather than a manual filter, and a text-based Growth Indicator measure that outputs a ready-to-display "▲ 12.3% vs last year" label. All 14 measures live in a separate, empty Measures table to keep the model organized. The report itself spans 3 pages — Executive Analysis, Product Analysis, and a drill-through Order Details page — with slicers synced across all pages, one chart deliberately excluded from a slicer's effect using Edit Interactions, and a bookmark-powered "Reset Filters" button.</p>
+
+<h2 data-i18n="result_h2">Result</h2>
+<p data-i18n="result_p">A complete analytical Power BI solution — not just a dashboard, but a real data model with documented relationships, 14 working DAX measures, and a tested drill-through path from a product straight to its underlying order-level rows. Along the way I also hit and solved real technical problems: a circular dependency between two calculated columns, a map visual that failed due to a geocoding service issue (replaced with a Treemap with no external dependency), a spiky line chart caused by an unintended day-level drill (fixed by locking the drill level to quarter), and an initially broken YoY calculation that returned impossible values because it depended on MAX() over the full calendar table instead of the actual last date with real data.</p>
+
+<h2 data-i18n="demo_h2">What this project demonstrates</h2>
+<ul>
+<li data-i18n="demo_li1">Designing a star-schema data model from a single flat table</li>
+<li data-i18n="demo_li2">Solving real key-uniqueness problems with composite keys, verified statistically before use</li>
+<li data-i18n="demo_li3">Writing DAX measures beyond basics: time intelligence, dynamic ranking, and text-based indicators</li>
+<li data-i18n="demo_li4">Multi-page report design with synced slicers, controlled interactions, and drill-through</li>
+<li data-i18n="demo_li5">Debugging real modeling problems (circular dependencies, broken time calculations, visual failures) rather than avoiding them</li>
+</ul>
+
+</article>
+<aside class="sidebar">
+<div class="side-card"><b data-i18n="side1_b">Data model</b><span data-i18n="side1_span">1 Fact + 5 Dimension tables (Star Schema)</span></div>
+<div class="side-card"><b data-i18n="side2_b">DAX measures</b><span data-i18n="side2_span">14 measures, including time intelligence</span></div>
+<div class="side-card"><b data-i18n="side3_b">Calculated columns</b><span data-i18n="side3_span">4, including a quartile-based profitability classification</span></div>
+<div class="side-card"><b data-i18n="side4_b">Report pages</b><span data-i18n="side4_span">3 pages incl. tested drill-through</span></div>
+</aside>
+</section>
+
+<section class="wrap grid">
+<article class="content" style="grid-column:1/-1;">
+<h2 data-i18n="gallery_h2">More views from the report</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+<img loading="lazy" src="../assets/images/project-3-product.webp" alt="Product Analysis page" style="width:100%;border-radius:10px;cursor:zoom-in;border:1px solid var(--line);" onclick="openBox(this.src)">
+<img loading="lazy" src="../assets/images/project-3-orders.webp" alt="Order Details drill-through page" style="width:100%;border-radius:10px;cursor:zoom-in;border:1px solid var(--line);" onclick="openBox(this.src)">
+</div>
+</article>
+</section>
+
+<section class="wrap next"><a href="superstore-sales-dashboard.html"><span><small data-i18n="next_small">Next case study</small><br><b data-i18n="next_title">Superstore Sales Dashboard · Excel</b></span><span id="next-arrow">→</span></a></section>
+</main>
+<div class="lightbox" id="box" onclick="closeBox()"><span class="close">×</span><img id="boximg" alt="Dashboard enlarged" onclick="event.stopPropagation()"></div>
+<script>
+function openBox(s){boximg.src=s;box.classList.add('open')}
+function closeBox(){box.classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
+
+const translations = {
+  en: {
+    back_link: "← Back to projects",
+    live_label: "🔴 Live interactive report — try the real filters yourself",
+    eyebrow: "Case Study · Power BI · Data Modeling",
+    h1: "Superstore Sales & Profitability Analytics",
+    intro: "A full Power BI project built from the same Superstore dataset as the Excel project — this time focused on a proper star-schema data model, 14 DAX measures, and 3 interactive report pages with drill-through.",
+    challenge_h2: "The challenge",
+    challenge_p: "This project used the exact same raw Superstore data as the Excel dashboard, but the goal was different: build a proper relational data model from scratch (not just clean and visualize), handle real data-quality problems at the modeling level, and produce a full multi-page analytical report with drill-through — all backed by DAX instead of formulas.",
+    approach_h2: "The approach",
+    step1_h3: "1. Import and shape with Power Query",
+    step1_p: "Imported the workbook's three sheets (Orders, People, Returns), fixed data types (dates, decimals, and kept Postal Code as text to preserve leading zeros), and removed fully blank rows. In the Returns table, I found 800 rows but only 296 unique Order IDs — duplicates were removed so the table could join cleanly into a one-to-many relationship.",
+    step2_h3: "2. Build a real star schema",
+    step2_p: "Split the single Orders table into a Fact table and five dimension tables: Dim_Customer, Dim_Product, Dim_ShipMode, Dim_Address, and Dim_Date. Two data-quality problems came up here specifically. First, some Product IDs were linked to more than one completely different product name — so I built a composite key (Product ID + Product Name) instead of trusting Product ID alone. Second, there was no ready-made location key, so I statistically verified that City + Postal Code was 100% unique before using it as a composite key for the address dimension. Dim_Date was built entirely with Power Query M code to guarantee a continuous calendar with no gaps, which I verified was necessary since real gaps existed in the order and ship dates.",
+    step3_h3: "3. Add calculated columns for real business logic",
+    step3_p: "Added Shipping Delay (day difference between order and ship date) and a Profitability Category that classifies every row into Loss, Low, Medium, Good, or High profit — not with arbitrary cutoffs, but using statistical quartiles calculated dynamically from the actual positive-margin rows. A supporting Row Margin column and a numeric Rank Profitability column were added to keep the sorting logic correct and avoid a circular dependency between the two.",
+    step4_h3: "4. Write 14 DAX measures and build the report",
+    step4_p: "Beyond the basics (Total Sales, Total Profit, Profit Margin %), I built a Running Total using ALLSELECTED, a Year-over-Year Growth % using SAMEPERIODLASTYEAR, a dynamic Top 10 Sales measure driven by RANKX rather than a manual filter, and a text-based Growth Indicator measure that outputs a ready-to-display \"▲ 12.3% vs last year\" label. All 14 measures live in a separate, empty Measures table to keep the model organized. The report itself spans 3 pages — Executive Analysis, Product Analysis, and a drill-through Order Details page — with slicers synced across all pages, one chart deliberately excluded from a slicer's effect using Edit Interactions, and a bookmark-powered \"Reset Filters\" button.",
+    result_h2: "Result",
+    result_p: "A complete analytical Power BI solution — not just a dashboard, but a real data model with documented relationships, 14 working DAX measures, and a tested drill-through path from a product straight to its underlying order-level rows. Along the way I also hit and solved real technical problems: a circular dependency between two calculated columns, a map visual that failed due to a geocoding service issue (replaced with a Treemap with no external dependency), a spiky line chart caused by an unintended day-level drill (fixed by locking the drill level to quarter), and an initially broken YoY calculation that returned impossible values because it depended on MAX() over the full calendar table instead of the actual last date with real data.",
+    demo_h2: "What this project demonstrates",
+    demo_li1: "Designing a star-schema data model from a single flat table",
+    demo_li2: "Solving real key-uniqueness problems with composite keys, verified statistically before use",
+    demo_li3: "Writing DAX measures beyond basics: time intelligence, dynamic ranking, and text-based indicators",
+    demo_li4: "Multi-page report design with synced slicers, controlled interactions, and drill-through",
+    demo_li5: "Debugging real modeling problems (circular dependencies, broken time calculations, visual failures) rather than avoiding them",
+    side1_b: "Data model", side1_span: "1 Fact + 5 Dimension tables (Star Schema)",
+    side2_b: "DAX measures", side2_span: "14 measures, including time intelligence",
+    side3_b: "Calculated columns", side3_span: "4, including a quartile-based profitability classification",
+    side4_b: "Report pages", side4_span: "3 pages incl. tested drill-through",
+    gallery_h2: "More views from the report",
+    next_small: "Next case study", next_title: "Superstore Sales Dashboard · Excel",
+    next_arrow: "→"
+  },
+  ar: {
+    back_link: "→ رجوع للمشاريع",
+    live_label: "🔴 تقرير تفاعلي حقيقي — جرّب الفلاتر بنفسك",
+    eyebrow: "دراسة حالة · Power BI · نمذجة بيانات",
+    h1: "تحليل مبيعات وربحية Superstore",
+    intro: "مشروع Power BI كامل مبني على نفس داتا Superstore اللي استخدمتها في مشروع Excel — بس المرة دي التركيز كان على بناء نموذج بيانات Star Schema صحيح، و14 مقياس DAX، و3 صفحات تقرير تفاعلية فيها Drill-through.",
+    challenge_h2: "التحدي",
+    challenge_p: "المشروع ده استخدم نفس بيانات Superstore الخام بتاعت مشروع Excel، لكن الهدف كان مختلف: بناء نموذج بيانات علائقي صحيح من الصفر (مش بس تنظيف وعرض)، والتعامل مع مشاكل جودة بيانات حقيقية على مستوى النموذج نفسه، وإخراج تقرير تحليلي كامل متعدد الصفحات فيه Drill-through — كل ده مبني على DAX بدل المعادلات العادية.",
+    approach_h2: "طريقة العمل",
+    step1_h3: "1. الاستيراد والتجهيز بـ Power Query",
+    step1_p: "استوردت 3 شيتات من الملف (Orders, People, Returns)، ظبطت أنواع البيانات (تواريخ، أرقام عشرية، وسيبت الكود البريدي نص عشان الأصفار في البداية متضيعش)، وشلت الصفوف الفاضية بالكامل. في جدول Returns، لقيت 800 صف لكن 296 قيمة Order ID فريدة بس — شلت التكرار عشان الجدول يقدر يترابط صح بعلاقة one-to-many.",
+    step2_h3: "2. بناء Star Schema حقيقي",
+    step2_p: "قسّمت جدول الأوردرات الواحد لجدول Fact وخمس جداول Dimension: Dim_Customer, Dim_Product, Dim_ShipMode, Dim_Address, Dim_Date. واجهت هنا مشكلتين جودة بيانات حقيقيتين. الأولى: بعض قيم Product ID كانت مرتبطة بأكتر من اسم منتج مختلف تمامًا — فبنيت مفتاح مركّب (Product ID + Product Name) بدل ما أعتمد على Product ID لوحده. التانية: مفيش مفتاح جاهز للموقع الجغرافي، فتأكدت إحصائيًا إن City + Postal Code فريدة 100% قبل ما أستخدمها كمفتاح مركّب لجدول العناوين. Dim_Date بنيته بالكامل بكود M في Power Query عشان أضمن تقويم متصل بدون أي فجوة، وتأكدت إن ده كان ضروري لأن فيه فجوات حقيقية في تواريخ الأوردر والشحن.",
+    step3_h3: "3. إضافة أعمدة محسوبة لمنطق عمل حقيقي",
+    step3_p: "أضفت Shipping Delay (الفرق بالأيام بين تاريخ الأوردر والشحن) وProfitability Category اللي بتصنف كل صف لـ Loss أو Low أو Medium أو Good أو High Profit — مش بحدود عشوائية، لكن باستخدام أرباع إحصائية (Quartiles) محسوبة ديناميكيًا من الصفوف اللي هامشها موجب فعليًا. أضفت عمود مساعد Row Margin وعمود رقمي Rank Profitability عشان الترتيب يفضل صح ومتفاداش مشكلة اعتماد دائري بين الاتنين.",
+    step4_h3: "4. كتابة 14 مقياس DAX وبناء التقرير",
+    step4_p: "غير الأساسيات (Total Sales, Total Profit, Profit Margin %)، بنيت Running Total باستخدام ALLSELECTED، ونسبة نمو سنوي (YoY) باستخدام SAMEPERIODLASTYEAR، ومقياس Top 10 Sales ديناميكي مبني على RANKX بدل فلتر يدوي، ومقياس نصي Growth Indicator بيطلع نص جاهز للعرض زي \"▲ 12.3% vs last year\". كل الـ14 مقياس موجودين في جدول منفصل فاضي عشان النموذج يفضل منظم. التقرير نفسه فيه 3 صفحات — Executive Analysis وProduct Analysis وصفحة Order Details فيها Drill-through — مع سلايسرز متزامنة عبر كل الصفحات، وشارت واحد مستثنى عمدًا من تأثير سلايسر معين باستخدام Edit Interactions، وزرار \"Reset Filters\" مبني على Bookmark.",
+    result_h2: "النتيجة",
+    result_p: "حل تحليلي كامل في Power BI — مش بس داشبورد، لكن نموذج بيانات حقيقي بعلاقات موثقة، و14 مقياس DAX شغال، ومسار Drill-through مختبر فعليًا من منتج معين لحد صفوفه التفصيلية على مستوى الأوردر. في الطريق كمان واجهت وحليت مشاكل تقنية حقيقية: اعتماد دائري بين عمودين محسوبين، فشل Visual الخريطة بسبب مشكلة في خدمة الـ Geocoding (استبدلته بـ Treemap مش محتاج أي اتصال خارجي)، خط بياني متسنن بسبب Drill غير مقصود لمستوى اليوم (اتصلح بتثبيت مستوى الـ Drill على الربع السنوي)، ومشكلة حساب YoY كانت بترجع قيم غير منطقية لأنها كانت معتمدة على MAX() على جدول التقويم الكامل بدل آخر تاريخ فيه بيانات فعلية.",
+    demo_h2: "المشروع ده بيوضح إيه",
+    demo_li1: "تصميم نموذج بيانات Star Schema من جدول واحد مسطح",
+    demo_li2: "حل مشاكل تفرد المفاتيح الحقيقية بمفاتيح مركّبة، بعد التأكد إحصائيًا قبل الاستخدام",
+    demo_li3: "كتابة مقاييس DAX أبعد من الأساسيات: Time Intelligence، ترتيب ديناميكي، ومؤشرات نصية",
+    demo_li4: "تصميم تقرير متعدد الصفحات بسلايسرز متزامنة وتفاعلات متحكم فيها وDrill-through",
+    demo_li5: "حل مشاكل نمذجة حقيقية (اعتماد دائري، حسابات زمنية بايظة، فشل Visuals) بدل تجنبها",
+    side1_b: "نموذج البيانات", side1_span: "جدول Fact واحد + 5 جداول Dimension (Star Schema)",
+    side2_b: "مقاييس DAX", side2_span: "14 مقياس، فيهم Time Intelligence",
+    side3_b: "الأعمدة المحسوبة", side3_span: "4 أعمدة، منهم تصنيف ربحية مبني على أرباع إحصائية",
+    side4_b: "صفحات التقرير", side4_span: "3 صفحات فيهم Drill-through مختبر",
+    gallery_h2: "صور إضافية من التقرير",
+    next_small: "دراسة الحالة التالية", next_title: "لوحة بيانات Superstore · Excel",
+    next_arrow: "←"
+  }
+};
+
+function applyLanguage(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key] !== undefined){
+      el.textContent = translations[lang][key];
+    }
+  });
+  const arrow = document.getElementById('next-arrow');
+  if(arrow) arrow.textContent = translations[lang].next_arrow;
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  const label = document.getElementById('lang-label');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+  localStorage.setItem('portfolio-lang', lang);
+}
+function toggleLang(){
+  const current = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+  applyLanguage(current === 'ar' ? 'en' : 'ar');
+}
+(function(){
+  const saved = localStorage.getItem('portfolio-lang');
+  if(saved === 'ar') applyLanguage('ar');
+})();
+</script>
+</body></html>
