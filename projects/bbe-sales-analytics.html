@@ -1,0 +1,189 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BBE Sales & Profitability Analytics — Ahmed Nasser Jafer</title><meta name="description" content="Case study: a consultancy-style Power BI project for a fictional bike retailer — star schema, ~25 DAX measures, documented data limitations, and business recommendations."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg"></head><body>
+<header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><div style="display:flex;align-items:center;gap:18px;"><button id="lang-toggle" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language"><span id="lang-label">AR</span></button><a class="back" href="../index.html#projects" data-i18n="back_link">← Back to projects</a></div></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow" data-i18n="eyebrow">Case Study · Power BI · Consultancy Report</div>
+<h1 data-i18n="h1">BBE Sales & Profitability Analytics</h1>
+<p data-i18n="intro">A full consultancy-style engagement: a star-schema data model, ~25 DAX measures, a 3-page executive dashboard, and a written report covering methodology, documented data limitations, and business recommendations.</p>
+<div class="meta"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">Star Schema</span><span class="tag">DAX</span><span class="tag">Business Reporting</span></div>
+<div class="hero-image"><img loading="eager" src="../assets/images/project-4.webp" alt="BBE Sales Analytics — Executive Overview page" onclick="openBox(this.src)"></div>
+<div style="margin-top:20px;"><a href="../resume/BBE-Sales-Analytics-Report.pdf" target="_blank" rel="noopener" class="btn-ghost-link" data-i18n="download_report">📄 Download the full written report (PDF)</a></div>
+</div></section>
+
+<section class="wrap grid">
+<article class="content">
+
+<h2 data-i18n="challenge_h2">The challenge</h2>
+<p data-i18n="challenge_p">BBE, a retailer of bikes, parts, accessories, and sports apparel, needed a sales analytics solution covering product, geographic, temporal, and customer performance — built to a standard where every figure could be trusted, and every limitation in the underlying data was documented rather than hidden.</p>
+
+<h2 data-i18n="approach_h2">The approach</h2>
+
+<h3 data-i18n="step1_h3">1. Understand the data before touching it</h3>
+<p data-i18n="step1_p">Before any cleaning, I profiled all four source tables (Products, Customers, Orders, Promotion) column by column — data types, null patterns, and referential integrity — to know exactly what I was working with.</p>
+
+<h3 data-i18n="step2_h3">2. Clean with a documented decision for every issue found</h3>
+<p data-i18n="step2_p">Every data-quality issue was logged with a finding and a decision, not silently fixed. Examples: 209 products had no category — identified as internal manufacturing components and excluded from a dedicated Products_Working table, but kept in the original query for reference. "NA" text values in Color and SizeRange were masking as real categories — replaced with true nulls. Coded fields (ProductLine, Class) were decoded to readable values, but flagged as an external assumption since the coding convention wasn't confirmed by the data itself. 24 fully duplicate order rows were removed. 5 order lines had no valid product link — kept in revenue totals but flagged and excluded from product-level breakdowns rather than dropped outright.</p>
+
+<h3 data-i18n="step3_h3">3. Build the star schema and ~25 DAX measures</h3>
+<p data-i18n="step3_p">Orders sits as the central fact table, related to three dimensions (Products_Working, Customers, Promotion) plus a custom Date table generated in Power Query and marked as the model's official date table. On top of that: ~25 measures spanning core KPIs, time intelligence (YoY, YTD, MTD, rolling averages), product ranking, and new-vs-returning customer segmentation — using the Customers table's own DateFirstPurchase field rather than recalculating it from Orders, since Orders only covers a partial window of each customer's real history.</p>
+
+<h3 data-i18n="step4_h3">4. Report limitations as clearly as the results</h3>
+<p data-i18n="step4_p">The written report includes a full Data Limitations section: the dataset ends mid-January 2020, so any period including that month is partial, not a real decline. Promotion discounts aren't reflected in the actual price charged, so promotional impact on revenue genuinely cannot be measured from this data — and the report says so plainly instead of presenting a misleading number. Shipping and due dates turned out to be fixed, invariant offsets from the order date across all 58,178 rows, meaning any "delivery time" analysis on this data would be analyzing a constant, not a real pattern — so that angle was documented as a limitation rather than presented as an insight.</p>
+
+<h2 data-i18n="result_h2">Result</h2>
+<p data-i18n="result_p">A three-page executive dashboard (Executive Overview, Product Performance, Customer & Geography) backed by a written consultancy report that pairs every business insight with the evidence behind it and the commercial implication — for example, that Bikes drive about 95% of revenue ($21.2M of $22.2M), that the top six best-selling products are all Mountain-200 variants, and that new customer acquisition nearly quadrupled from 2018 to 2019. Just as importantly, the report is explicit about what the data can't tell you — which is what makes the numbers it does report trustworthy.</p>
+
+<h2 data-i18n="insights_h2">Key business insights (from the written report)</h2>
+<ul>
+<li data-i18n="insight_li1">Bikes generate ~95% of total revenue — a concentration risk worth flagging to management</li>
+<li data-i18n="insight_li2">The top 6 best-sellers are all one model family (Mountain-200), and the next 4 are all Road-250</li>
+<li data-i18n="insight_li3">New customer acquisition nearly quadrupled from 2018 (~3,200) to 2019 (~12,500)</li>
+<li data-i18n="insight_li4">Higher-income customers consistently spend more — a usable segmentation variable</li>
+<li data-i18n="insight_li5">The US and Australia alone account for ~60% of revenue, leaving 4 secondary markets under-tapped</li>
+</ul>
+
+<h2 data-i18n="demo_h2">What this project demonstrates</h2>
+<ul>
+<li data-i18n="demo_li1">A full analytics workflow: business understanding → data profiling → cleaning → modeling → DAX → reporting</li>
+<li data-i18n="demo_li2">Documenting data-quality findings and decisions instead of silently patching them</li>
+<li data-i18n="demo_li3">Being explicit about what the data cannot answer, not just what it can</li>
+<li data-i18n="demo_li4">Writing for a business audience: findings paired with evidence and management implications</li>
+<li data-i18n="demo_li5">~25 DAX measures including guarded time-intelligence and ranking patterns</li>
+</ul>
+
+</article>
+<aside class="sidebar">
+<div class="side-card"><b data-i18n="side1_b">Data model</b><span data-i18n="side1_span">Fact + 3 dimensions + Date table (Star Schema)</span></div>
+<div class="side-card"><b data-i18n="side2_b">DAX measures</b><span data-i18n="side2_span">~25 measures, incl. time intelligence</span></div>
+<div class="side-card"><b data-i18n="side3_b">Documented limitations</b><span data-i18n="side3_span">8 data-quality findings, each with a stated decision</span></div>
+<div class="side-card"><b data-i18n="side4_b">Deliverable</b><span data-i18n="side4_span">3-page dashboard + written consultancy report</span></div>
+<div class="side-card"><a href="../resume/BBE-Sales-Analytics-Report.pdf" target="_blank" rel="noopener" data-i18n="side_report_link">📄 Download full report (PDF) →</a></div>
+</aside>
+</section>
+
+<section class="wrap grid">
+<article class="content" style="grid-column:1/-1;">
+<h2 data-i18n="gallery_h2">More views from the report</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+<img loading="lazy" src="../assets/images/project-4-product.webp" alt="Product Performance page" style="width:100%;border-radius:10px;cursor:zoom-in;border:1px solid var(--line);" onclick="openBox(this.src)">
+<img loading="lazy" src="../assets/images/project-4-customer.webp" alt="Customer and Geography page" style="width:100%;border-radius:10px;cursor:zoom-in;border:1px solid var(--line);" onclick="openBox(this.src)">
+</div>
+</article>
+</section>
+
+<section class="wrap next"><a href="superstore-sales-dashboard.html"><span><small data-i18n="next_small">Next case study</small><br><b data-i18n="next_title">Superstore Sales Dashboard · Excel</b></span><span id="next-arrow">→</span></a></section>
+</main>
+<div class="lightbox" id="box" onclick="closeBox()"><span class="close">×</span><img id="boximg" alt="Dashboard enlarged" onclick="event.stopPropagation()"></div>
+<script>
+function openBox(s){boximg.src=s;box.classList.add('open')}
+function closeBox(){box.classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
+
+const translations = {
+  en: {
+    back_link: "← Back to projects",
+    eyebrow: "Case Study · Power BI · Consultancy Report",
+    h1: "BBE Sales & Profitability Analytics",
+    intro: "A full consultancy-style engagement: a star-schema data model, ~25 DAX measures, a 3-page executive dashboard, and a written report covering methodology, documented data limitations, and business recommendations.",
+    download_report: "📄 Download the full written report (PDF)",
+    challenge_h2: "The challenge",
+    challenge_p: "BBE, a retailer of bikes, parts, accessories, and sports apparel, needed a sales analytics solution covering product, geographic, temporal, and customer performance — built to a standard where every figure could be trusted, and every limitation in the underlying data was documented rather than hidden.",
+    approach_h2: "The approach",
+    step1_h3: "1. Understand the data before touching it",
+    step1_p: "Before any cleaning, I profiled all four source tables (Products, Customers, Orders, Promotion) column by column — data types, null patterns, and referential integrity — to know exactly what I was working with.",
+    step2_h3: "2. Clean with a documented decision for every issue found",
+    step2_p: "Every data-quality issue was logged with a finding and a decision, not silently fixed. Examples: 209 products had no category — identified as internal manufacturing components and excluded from a dedicated Products_Working table, but kept in the original query for reference. \"NA\" text values in Color and SizeRange were masking as real categories — replaced with true nulls. Coded fields (ProductLine, Class) were decoded to readable values, but flagged as an external assumption since the coding convention wasn't confirmed by the data itself. 24 fully duplicate order rows were removed. 5 order lines had no valid product link — kept in revenue totals but flagged and excluded from product-level breakdowns rather than dropped outright.",
+    step3_h3: "3. Build the star schema and ~25 DAX measures",
+    step3_p: "Orders sits as the central fact table, related to three dimensions (Products_Working, Customers, Promotion) plus a custom Date table generated in Power Query and marked as the model's official date table. On top of that: ~25 measures spanning core KPIs, time intelligence (YoY, YTD, MTD, rolling averages), product ranking, and new-vs-returning customer segmentation — using the Customers table's own DateFirstPurchase field rather than recalculating it from Orders, since Orders only covers a partial window of each customer's real history.",
+    step4_h3: "4. Report limitations as clearly as the results",
+    step4_p: "The written report includes a full Data Limitations section: the dataset ends mid-January 2020, so any period including that month is partial, not a real decline. Promotion discounts aren't reflected in the actual price charged, so promotional impact on revenue genuinely cannot be measured from this data — and the report says so plainly instead of presenting a misleading number. Shipping and due dates turned out to be fixed, invariant offsets from the order date across all 58,178 rows, meaning any \"delivery time\" analysis on this data would be analyzing a constant, not a real pattern — so that angle was documented as a limitation rather than presented as an insight.",
+    result_h2: "Result",
+    result_p: "A three-page executive dashboard (Executive Overview, Product Performance, Customer & Geography) backed by a written consultancy report that pairs every business insight with the evidence behind it and the commercial implication — for example, that Bikes drive about 95% of revenue ($21.2M of $22.2M), that the top six best-selling products are all Mountain-200 variants, and that new customer acquisition nearly quadrupled from 2018 to 2019. Just as importantly, the report is explicit about what the data can't tell you — which is what makes the numbers it does report trustworthy.",
+    insights_h2: "Key business insights (from the written report)",
+    insight_li1: "Bikes generate ~95% of total revenue — a concentration risk worth flagging to management",
+    insight_li2: "The top 6 best-sellers are all one model family (Mountain-200), and the next 4 are all Road-250",
+    insight_li3: "New customer acquisition nearly quadrupled from 2018 (~3,200) to 2019 (~12,500)",
+    insight_li4: "Higher-income customers consistently spend more — a usable segmentation variable",
+    insight_li5: "The US and Australia alone account for ~60% of revenue, leaving 4 secondary markets under-tapped",
+    demo_h2: "What this project demonstrates",
+    demo_li1: "A full analytics workflow: business understanding → data profiling → cleaning → modeling → DAX → reporting",
+    demo_li2: "Documenting data-quality findings and decisions instead of silently patching them",
+    demo_li3: "Being explicit about what the data cannot answer, not just what it can",
+    demo_li4: "Writing for a business audience: findings paired with evidence and management implications",
+    demo_li5: "~25 DAX measures including guarded time-intelligence and ranking patterns",
+    side1_b: "Data model", side1_span: "Fact + 3 dimensions + Date table (Star Schema)",
+    side2_b: "DAX measures", side2_span: "~25 measures, incl. time intelligence",
+    side3_b: "Documented limitations", side3_span: "8 data-quality findings, each with a stated decision",
+    side4_b: "Deliverable", side4_span: "3-page dashboard + written consultancy report",
+    side_report_link: "📄 Download full report (PDF) →",
+    gallery_h2: "More views from the report",
+    next_small: "Next case study", next_title: "Superstore Sales Dashboard · Excel",
+    next_arrow: "→"
+  },
+  ar: {
+    back_link: "→ رجوع للمشاريع",
+    eyebrow: "دراسة حالة · Power BI · تقرير استشاري",
+    h1: "تحليل مبيعات وربحية BBE",
+    intro: "مشروع استشاري كامل: نموذج بيانات Star Schema، حوالي 25 مقياس DAX، داشبورد تنفيذي بـ3 صفحات، وتقرير مكتوب يغطي المنهجية، محددات البيانات الموثقة، والتوصيات التجارية.",
+    download_report: "📄 تحميل التقرير المكتوب كامل (PDF)",
+    challenge_h2: "التحدي",
+    challenge_p: "BBE، متجر بيع دراجات وقطع غيار وإكسسوارات وملابس رياضية، محتاج حل تحليل مبيعات يغطي أداء المنتج والجغرافيا والزمن والعملاء — مبني بمعيار كل رقم فيه موثوق، وكل محدودية في البيانات موثقة مش مخفية.",
+    approach_h2: "طريقة العمل",
+    step1_h3: "1. فهم البيانات قبل ما ألمسها",
+    step1_p: "قبل أي تنظيف، عملت Profiling لكل الجداول الأربعة المصدر (Products, Customers, Orders, Promotion) عمود عمود — أنواع البيانات، أنماط القيم الفارغة، وسلامة الربط — عشان أعرف بالظبط شغال على إيه.",
+    step2_h3: "2. تنظيف مع قرار موثّق لكل مشكلة",
+    step2_p: "كل مشكلة جودة بيانات اتسجلت بملاحظة وقرار، مش تصحيح صامت. أمثلة: 209 منتج معندهاش تصنيف — اتحدد إنهم مكونات تصنيع داخلية واتشالوا من جدول Products_Working المخصص، لكن اتسابوا في الاستعلام الأصلي للمرجعية. قيم نصية \"NA\" في Color و SizeRange كانت بتتنكر كتصنيف حقيقي — اتبدلت بقيم فارغة حقيقية. الحقول المشفرة (ProductLine, Class) اتفكت لقيم مقروءة، لكن اتحطلها علامة كافتراض خارجي لأن نظام الترميز مكنش مؤكد من البيانات نفسها. 24 صف أوردر مكرر بالكامل اتشال. 5 سطور أوردر معندهاش ربط منتج صحيح — اتسابت في إجمالي الإيرادات لكن اتحطلها علامة واتشالت من التحليل على مستوى المنتج بدل ما تتمسح خالص.",
+    step3_h3: "3. بناء Star Schema و25 مقياس DAX تقريبًا",
+    step3_p: "جدول Orders هو الـ Fact المركزي، مربوط بـ3 جداول Dimension (Products_Working, Customers, Promotion) بالإضافة لجدول Date مخصص اتعمل في Power Query واتحدد كجدول التاريخ الرسمي للنموذج. فوق كده: حوالي 25 مقياس يغطوا KPIs أساسية، Time Intelligence (YoY, YTD, MTD, متوسطات متحركة)، ترتيب منتجات، وتصنيف عملاء جدد مقابل متكررين — باستخدام حقل DateFirstPurchase بتاع جدول العملاء نفسه بدل ما يتحسب من Orders، لأن Orders بتغطي بس جزء من تاريخ العميل الحقيقي.",
+    step4_h3: "4. توثيق المحدوديات بنفس وضوح النتائج",
+    step4_p: "التقرير المكتوب فيه قسم كامل Data Limitations: الداتا بتنتهي منتصف يناير 2020، فأي فترة فيها الشهر ده جزئية، مش انخفاض حقيقي. خصومات العروض مش منعكسة في السعر الفعلي المدفوع، فتأثير العروض على الإيرادات فعليًا مش ممكن يتقاس من الداتا دي — والتقرير بيقول كده بوضوح بدل ما يطلع رقم مضلل. تواريخ الشحن والاستحقاق طلعت فروقات ثابتة من تاريخ الأوردر عبر كل الـ58,178 صف، يعني أي تحليل \"وقت التسليم\" على الداتا دي هيكون بيحلل رقم ثابت، مش نمط حقيقي — فاتوثقت كمحدودية بدل ما تتعرض كنتيجة تحليلية.",
+    result_h2: "النتيجة",
+    result_p: "داشبورد تنفيذي بـ3 صفحات (Executive Overview, Product Performance, Customer & Geography) مدعوم بتقرير استشاري مكتوب بيربط كل نتيجة تجارية بالدليل وراها والأثر التجاري المترتب عليها — مثلاً إن الدراجات بتحرك حوالي 95% من الإيرادات (2.22 مليون من 2.22 مليون دولار)، وإن أفضل 6 منتجات مبيعًا كلهم من نفس عائلة Mountain-200، وإن اكتساب عملاء جدد اتضاعف تقريبًا 4 مرات من 2018 لـ2019. والأهم إن التقرير واضح في إيه اللي الداتا مش قادرة تقوله — وده اللي بيخلي الأرقام اللي بيقولها موثوقة.",
+    insights_h2: "أهم النتائج التجارية (من التقرير المكتوب)",
+    insight_li1: "الدراجات بتحقق حوالي 95% من إجمالي الإيرادات — خطر تركيز يستاهل تنبيه الإدارة",
+    insight_li2: "أفضل 6 منتجات مبيعًا كلهم من عائلة موديل واحدة (Mountain-200)، والأربعة اللي بعدهم من Road-250",
+    insight_li3: "اكتساب العملاء الجدد اتضاعف تقريبًا 4 مرات من 2018 (حوالي 3,200) لـ2019 (حوالي 12,500)",
+    insight_li4: "العملاء أصحاب الدخل الأعلى بيصرفوا أكتر بشكل ثابت — متغير تصنيف قابل للاستخدام",
+    insight_li5: "أمريكا وأستراليا لوحدهم بيمثلوا حوالي 60% من الإيرادات، وسايبين 4 أسواق ثانوية مش مستغلة كفاية",
+    demo_h2: "المشروع ده بيوضح إيه",
+    demo_li1: "منهجية تحليل بيانات كاملة: فهم العمل ← فهم البيانات ← التنظيف ← النمذجة ← DAX ← التقرير",
+    demo_li2: "توثيق ملاحظات وقرارات جودة البيانات بدل تصحيحها بصمت",
+    demo_li3: "الوضوح في إيه اللي البيانات مش قادرة تجاوب عليه، مش بس اللي قادرة عليه",
+    demo_li4: "الكتابة لجمهور تجاري: نتايج مربوطة بالدليل والأثر الإداري",
+    demo_li5: "حوالي 25 مقياس DAX فيهم أنماط Time Intelligence وترتيب محمية من الأخطاء",
+    side1_b: "نموذج البيانات", side1_span: "Fact + 3 جداول Dimension + جدول تاريخ (Star Schema)",
+    side2_b: "مقاييس DAX", side2_span: "حوالي 25 مقياس، فيهم Time Intelligence",
+    side3_b: "المحدوديات الموثقة", side3_span: "8 ملاحظات جودة بيانات، كل واحدة ليها قرار مذكور",
+    side4_b: "المخرج النهائي", side4_span: "داشبورد 3 صفحات + تقرير استشاري مكتوب",
+    side_report_link: "📄 تحميل التقرير الكامل (PDF) ←",
+    gallery_h2: "صور إضافية من التقرير",
+    next_small: "دراسة الحالة التالية", next_title: "لوحة بيانات Superstore · Excel",
+    next_arrow: "←"
+  }
+};
+
+function applyLanguage(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key] !== undefined){
+      el.textContent = translations[lang][key];
+    }
+  });
+  const arrow = document.getElementById('next-arrow');
+  if(arrow) arrow.textContent = translations[lang].next_arrow;
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  const label = document.getElementById('lang-label');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+  localStorage.setItem('portfolio-lang', lang);
+}
+function toggleLang(){
+  const current = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+  applyLanguage(current === 'ar' ? 'en' : 'ar');
+}
+(function(){
+  const saved = localStorage.getItem('portfolio-lang');
+  if(saved === 'ar') applyLanguage('ar');
+})();
+</script>
+</body></html>
