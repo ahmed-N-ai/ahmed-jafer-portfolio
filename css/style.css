@@ -231,7 +231,7 @@
 
   /* SKILL PROJECT COUNTERS */
   .skill-counters{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:20px;
     background:var(--navy);border-radius:18px;padding:32px 24px;margin-top:40px;
   }
   @media (max-width:720px){ .skill-counters{grid-template-columns:repeat(2,1fr);} }
