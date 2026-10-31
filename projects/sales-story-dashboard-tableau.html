@@ -1,0 +1,192 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sales Performance Story Dashboard — Ahmed Nasser Jafer</title><meta name="description" content="Case study: a one-page Tableau Public dashboard that walks the reader from the situation to the problem to the solution, following a Z-shaped reading path."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg"></head><body>
+<header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><div style="display:flex;align-items:center;gap:18px;"><button id="lang-toggle" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language"><span id="lang-label">AR</span></button><a class="back" href="../index.html#projects" data-i18n="back_link">← Back to projects</a></div></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow" data-i18n="eyebrow">Case Study · Tableau Public · Data Storytelling</div>
+<h1 data-i18n="h1">Sales Performance Story Dashboard</h1>
+<p data-i18n="intro">A one-page Tableau Public dashboard that walks the reader from the situation to the problem to the solution, following a Z-shaped reading path — built from a small sales dataset with calculated fields and table calculations.</p>
+<div class="meta"><span class="tag">Tableau Public</span><span class="tag">Excel</span><span class="tag">Calculated Fields</span><span class="tag">Table Calculations</span><span class="tag">Dashboard Design</span></div>
+<div class="hero-image"><img loading="eager" src="../assets/images/project-5.webp" alt="Sales performance story dashboard built in Tableau Public" onclick="openBox(this.src)"></div>
+</div></section>
+
+<section class="wrap">
+<div class="live-report-box">
+  <div class="live-report-label" data-i18n="live_label">🔴 Live interactive report — try the real filters yourself</div>
+  <div class="live-report-frame">
+    <iframe title="Sales Performance Story Dashboard" src="https://public.tableau.com/views/problem_17932668506660/SalesDashboard?:showVizHome=no&:embed=true&:language=en-US" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
+  </div>
+</div>
+</section>
+
+<section class="wrap grid">
+<article class="content">
+
+<h2 data-i18n="challenge_h2">The challenge</h2>
+<p data-i18n="challenge_p">A practice brief asked for a dashboard built from a small sales dataset — not just charting the numbers, but leading the reader through a clear story: what is happening, why it matters, and what to do about it, readable by a manager in about ten seconds.</p>
+
+<h2 data-i18n="approach_h2">The approach</h2>
+
+<h3 data-i18n="step1_h3">1. Profile the dataset first</h3>
+<p data-i18n="step1_p">One Excel sheet with 30 orders from January to June 2026: Date, Order ID, Region, City, Product, Category, Customer Segment, Units, Revenue — covering 3 cities (Cairo, Giza, Alexandria), 5 products (Laptop, Phone, Tablet, Desk, Chair), and 2 categories (Electronics, Furniture). The data arrived clean — I checked for missing values, duplicate rows, and inconsistent date formats during profiling and found none, so no cleaning step was needed before modeling.</p>
+
+<h3 data-i18n="step2_h3">2. Model with calculated fields, not a relational model</h3>
+<p data-i18n="step2_p">The data lives in a single flat table, so no relational model was needed. I added three calculated fields: Revenue per Unit (sum of revenue divided by sum of units), Laptop Share (Laptop units divided by all units), and a flag used only for highlighting Giza, plus percent-of-total table calculations for the city mix.</p>
+
+<h3 data-i18n="step3_h3">3. Analyse before designing anything</h3>
+<p data-i18n="step3_p">I compared units against revenue by category, city, and product before touching the layout. Prices turned out to be identical across cities — a Laptop is 8,500 in every city — so differences in revenue per unit come entirely from product mix, not pricing. I also compared each city's Laptop share against its revenue per unit.</p>
+
+<h3 data-i18n="step4_h3">4. Design a dashboard that tells a story</h3>
+<p data-i18n="step4_p">I built seven worksheets and arranged them on a fixed 1920×1080 canvas that reads in a Z shape: top-left has three KPI cards (revenue, units, revenue per unit), top-right has the monthly revenue trend with June annotated, a diagonal element bridges to the problem, bottom-left shows the problem as 100% stacked bars of units vs. revenue by city and category, and bottom-right shows the solution — revenue per unit by product against the average, plus Laptop share and revenue per unit by city. Colour carries meaning throughout: orange is Furniture, blue is Electronics.</p>
+
+<h2 data-i18n="result_h2">Result</h2>
+<p data-i18n="result_p">A dashboard where each chart sets up the next one: Furniture is about 52% of units but only 28% of revenue, and the cities that sell more Laptops earn more per unit. It was my first time designing the layout around a reading path instead of just placing charts.</p>
+
+<h2 data-i18n="insights_h2">Key insights</h2>
+<ul>
+<li data-i18n="insight_li1">Total revenue was 940.5K from 314 units, about 2,995 per unit</li>
+<li data-i18n="insight_li2">Revenue peaked in May at 176.0K and fell to 150.8K in June; the drop came from Cairo and Giza while Alexandria rose</li>
+<li data-i18n="insight_li3">Furniture is 51.6% of units but only 28.4% of revenue</li>
+<li data-i18n="insight_li4">Giza has the lowest revenue per unit (2,692) and sold only 5 Laptops, versus 12 in Alexandria, which has the highest (3,351)</li>
+<li data-i18n="insight_li5">Cairo sold 75 Chairs — 45% of its units but only 19% of its revenue</li>
+<li data-i18n="insight_li6">One Laptop (8,500) earns as much as 6.8 Chairs (1,250)</li>
+</ul>
+
+<h2 data-i18n="recs_h2">Recommendations</h2>
+<p data-i18n="recs_p">Based on the data, the focus should shift toward Laptop and Phone — the only two products above the 2,995 average revenue per unit — and Giza in particular has the most room to move toward them. Two caveats: Phone is above average by a very small margin (3,000), and with only 30 orders the patterns show a direction, not a statistical rule.</p>
+
+<h2 data-i18n="demo_h2">What this project demonstrates</h2>
+<ul>
+<li data-i18n="demo_li1">Designing a dashboard around a deliberate reading path (a Z shape) instead of just placing charts</li>
+<li data-i18n="demo_li2">Building calculated fields and percent-of-total table calculations in Tableau Public</li>
+<li data-i18n="demo_li3">Diagnosing a revenue gap by comparing price, product mix, and city performance before designing anything</li>
+<li data-i18n="demo_li4">Using colour with one fixed meaning throughout, not as decoration</li>
+<li data-i18n="demo_li5">Turning a handful of data points into clear, honestly-caveated business recommendations</li>
+</ul>
+
+</article>
+<aside class="sidebar">
+<div class="side-card"><b data-i18n="side1_b">Dashboard</b><span data-i18n="side1_span">1920×1080, 7 worksheets, Z-shaped reading path</span></div>
+<div class="side-card"><b data-i18n="side2_b">Calculated fields</b><span data-i18n="side2_span">Revenue per Unit, Laptop Share, plus % of total table calculations</span></div>
+<div class="side-card"><b data-i18n="side3_b">Dataset</b><span data-i18n="side3_span">30 orders, Jan–Jun 2026, 3 cities, 5 products</span></div>
+<div class="side-card"><b data-i18n="side4_b">Deliverable</b><span data-i18n="side4_span">One-page story dashboard, published on Tableau Public</span></div>
+</aside>
+</section>
+
+<section class="wrap next"><a href="superstore-sales-dashboard.html"><span><small data-i18n="next_small">Next case study</small><br><b data-i18n="next_title">Superstore Sales Dashboard · Excel</b></span><span id="next-arrow">→</span></a></section>
+</main>
+<div class="lightbox" id="box" onclick="closeBox()"><span class="close">×</span><img id="boximg" alt="Dashboard enlarged" onclick="event.stopPropagation()"></div>
+<script>
+function openBox(s){boximg.src=s;box.classList.add('open')}
+function closeBox(){box.classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
+
+const translations = {
+  en: {
+    back_link: "← Back to projects",
+    eyebrow: "Case Study · Tableau Public · Data Storytelling",
+    h1: "Sales Performance Story Dashboard",
+    intro: "A one-page Tableau Public dashboard that walks the reader from the situation to the problem to the solution, following a Z-shaped reading path — built from a small sales dataset with calculated fields and table calculations.",
+    live_label: "🔴 Live interactive report — try the real filters yourself",
+    challenge_h2: "The challenge",
+    challenge_p: "A practice brief asked for a dashboard built from a small sales dataset — not just charting the numbers, but leading the reader through a clear story: what is happening, why it matters, and what to do about it, readable by a manager in about ten seconds.",
+    approach_h2: "The approach",
+    step1_h3: "1. Profile the dataset first",
+    step1_p: "One Excel sheet with 30 orders from January to June 2026: Date, Order ID, Region, City, Product, Category, Customer Segment, Units, Revenue — covering 3 cities (Cairo, Giza, Alexandria), 5 products (Laptop, Phone, Tablet, Desk, Chair), and 2 categories (Electronics, Furniture). The data arrived clean — I checked for missing values, duplicate rows, and inconsistent date formats during profiling and found none, so no cleaning step was needed before modeling.",
+    step2_h3: "2. Model with calculated fields, not a relational model",
+    step2_p: "The data lives in a single flat table, so no relational model was needed. I added three calculated fields: Revenue per Unit (sum of revenue divided by sum of units), Laptop Share (Laptop units divided by all units), and a flag used only for highlighting Giza, plus percent-of-total table calculations for the city mix.",
+    step3_h3: "3. Analyse before designing anything",
+    step3_p: "I compared units against revenue by category, city, and product before touching the layout. Prices turned out to be identical across cities — a Laptop is 8,500 in every city — so differences in revenue per unit come entirely from product mix, not pricing. I also compared each city's Laptop share against its revenue per unit.",
+    step4_h3: "4. Design a dashboard that tells a story",
+    step4_p: "I built seven worksheets and arranged them on a fixed 1920×1080 canvas that reads in a Z shape: top-left has three KPI cards (revenue, units, revenue per unit), top-right has the monthly revenue trend with June annotated, a diagonal element bridges to the problem, bottom-left shows the problem as 100% stacked bars of units vs. revenue by city and category, and bottom-right shows the solution — revenue per unit by product against the average, plus Laptop share and revenue per unit by city. Colour carries meaning throughout: orange is Furniture, blue is Electronics.",
+    result_h2: "Result",
+    result_p: "A dashboard where each chart sets up the next one: Furniture is about 52% of units but only 28% of revenue, and the cities that sell more Laptops earn more per unit. It was my first time designing the layout around a reading path instead of just placing charts.",
+    insights_h2: "Key insights",
+    insight_li1: "Total revenue was 940.5K from 314 units, about 2,995 per unit",
+    insight_li2: "Revenue peaked in May at 176.0K and fell to 150.8K in June; the drop came from Cairo and Giza while Alexandria rose",
+    insight_li3: "Furniture is 51.6% of units but only 28.4% of revenue",
+    insight_li4: "Giza has the lowest revenue per unit (2,692) and sold only 5 Laptops, versus 12 in Alexandria, which has the highest (3,351)",
+    insight_li5: "Cairo sold 75 Chairs — 45% of its units but only 19% of its revenue",
+    insight_li6: "One Laptop (8,500) earns as much as 6.8 Chairs (1,250)",
+    recs_h2: "Recommendations",
+    recs_p: "Based on the data, the focus should shift toward Laptop and Phone — the only two products above the 2,995 average revenue per unit — and Giza in particular has the most room to move toward them. Two caveats: Phone is above average by a very small margin (3,000), and with only 30 orders the patterns show a direction, not a statistical rule.",
+    demo_h2: "What this project demonstrates",
+    demo_li1: "Designing a dashboard around a deliberate reading path (a Z shape) instead of just placing charts",
+    demo_li2: "Building calculated fields and percent-of-total table calculations in Tableau Public",
+    demo_li3: "Diagnosing a revenue gap by comparing price, product mix, and city performance before designing anything",
+    demo_li4: "Using colour with one fixed meaning throughout, not as decoration",
+    demo_li5: "Turning a handful of data points into clear, honestly-caveated business recommendations",
+    side1_b: "Dashboard", side1_span: "1920×1080, 7 worksheets, Z-shaped reading path",
+    side2_b: "Calculated fields", side2_span: "Revenue per Unit, Laptop Share, plus % of total table calculations",
+    side3_b: "Dataset", side3_span: "30 orders, Jan–Jun 2026, 3 cities, 5 products",
+    side4_b: "Deliverable", side4_span: "One-page story dashboard, published on Tableau Public",
+    next_small: "Next case study", next_title: "Superstore Sales Dashboard · Excel",
+    next_arrow: "→"
+  },
+  ar: {
+    back_link: "→ رجوع للمشاريع",
+    eyebrow: "دراسة حالة · Tableau Public · سرد بيانات",
+    h1: "داشبورد قصة أداء المبيعات",
+    intro: "داشبورد من صفحة واحدة في Tableau Public بياخد القارئ من الوضع الحالي للمشكلة للحل، على مسار قراءة بشكل حرف Z — مبني من داتا مبيعات صغيرة بحقول محسوبة وTable Calculations.",
+    live_label: "🔴 تقرير تفاعلي حقيقي — جرّب الفلاتر بنفسك",
+    challenge_h2: "التحدي",
+    challenge_p: "مطلوب داشبورد من داتا مبيعات صغيرة — مش بس عرض الأرقام في شارتات، لكن توصيل قصة واضحة للقارئ: إيه اللي حصل، ليه ده مهم، وإيه اللي لازم يتعمل، بحيث مدير يقدر يقراها في حوالي 10 ثواني.",
+    approach_h2: "طريقة العمل",
+    step1_h3: "1. فهم البيانات الأول",
+    step1_p: "شيت إكسل واحد فيه 30 أوردر من يناير لحد يونيو 2026: Date, Order ID, Region, City, Product, Category, Customer Segment, Units, Revenue — يغطي 3 مدن (القاهرة، الجيزة، الإسكندرية)، 5 منتجات (Laptop, Phone, Tablet, Desk, Chair)، وتصنيفين (Electronics, Furniture). الداتا وصلت نضيفة — اتأكدت من القيم الفاضية والتكرار وتنسيق التواريخ وقت الـ Profiling ومعرفتش أي مشكلة، فمحتجتش أي خطوة تنظيف قبل النمذجة.",
+    step2_h3: "2. نمذجة بحقول محسوبة مش نموذج علائقي",
+    step2_p: "البيانات في جدول واحد مسطح، فمحتجتش نموذج علائقي. أضفت 3 حقول محسوبة: Revenue per Unit (إجمالي الإيراد على إجمالي الوحدات)، Laptop Share (وحدات اللابتوب على كل الوحدات)، وعلامة مستخدمة بس لإبراز مدينة الجيزة، بالإضافة لـ Table Calculations لنسبة كل مدينة من الإجمالي.",
+    step3_h3: "3. تحليل قبل أي تصميم",
+    step3_p: "قارنت الوحدات بالإيراد حسب التصنيف والمدينة والمنتج قبل ما ألمس التصميم. طلع إن الأسعار متطابقة في كل المدن — اللابتوب بـ8,500 في كل مدينة — فالفرق في الإيراد لكل وحدة جاي بالكامل من مزيج المنتجات مش من السعر. قارنت كمان نسبة اللابتوب في كل مدينة بالإيراد لكل وحدة فيها.",
+    step4_h3: "4. تصميم داشبورد بيحكي قصة",
+    step4_p: "بنيت 7 Worksheets ورتبتهم على كانفاس ثابت 1920×1080 بيتقرا بشكل حرف Z: أعلى الشمال 3 كروت KPI (الإيراد، الوحدات، الإيراد لكل وحدة)، أعلى اليمين اتجاه الإيراد الشهري مع تعليق على يونيو، عنصر قطري بيربط للمشكلة، تحت الشمال المشكلة معروضة كأعمدة 100% Stacked للوحدات مقابل الإيراد حسب المدينة والتصنيف، وتحت اليمين الحل — الإيراد لكل وحدة لكل منتج مقابل المتوسط، بالإضافة لنسبة اللابتوب والإيراد لكل وحدة لكل مدينة. اللون بيحمل معنى ثابت طول الداشبورد: البرتقالي للـ Furniture، الأزرق للـ Electronics.",
+    result_h2: "النتيجة",
+    result_p: "داشبورد كل شارت فيه بيمهّد للي بعده: الـ Furniture حوالي 52% من الوحدات لكن بس 28% من الإيراد، والمدن اللي بتبيع لابتوبات أكتر بتكسب أكتر لكل وحدة. كانت أول مرة أصمم فيها الـ Layout حوالين مسار قراءة بدل ما أحط الشارتات عشوائي.",
+    insights_h2: "أهم النتائج",
+    insight_li1: "إجمالي الإيراد كان 940.5 ألف من 314 وحدة، يعني حوالي 2,995 لكل وحدة",
+    insight_li2: "الإيراد وصل لأعلى نقطة في مايو بـ176.0 ألف وقل لـ150.8 ألف في يونيو؛ الانخفاض جاي من القاهرة والجيزة بينما الإسكندرية ارتفعت",
+    insight_li3: "Furniture تمثل 51.6% من الوحدات لكن بس 28.4% من الإيراد",
+    insight_li4: "الجيزة عندها أقل إيراد لكل وحدة (2,692) وباعت 5 لابتوبات بس، مقابل 12 في الإسكندرية اللي عندها أعلى إيراد لكل وحدة (3,351)",
+    insight_li5: "القاهرة باعت 75 كرسي — 45% من وحداتها لكن بس 19% من إيرادها",
+    insight_li6: "لابتوب واحد (8,500) بيكسب زي 6.8 كرسي (1,250)",
+    recs_h2: "التوصيات",
+    recs_p: "بناءً على البيانات، التركيز لازم يتحول لـ Laptop وPhone — المنتجين الوحيدين فوق متوسط 2,995 للإيراد لكل وحدة — والجيزة بالذات عندها أكبر مساحة للتحرك ناحيتهم. فيه تحفظين: Phone فوق المتوسط بهامش بسيط جدًا (3,000)، وبـ30 أوردر بس، الأنماط دي بتوضح اتجاه مش قاعدة إحصائية مؤكدة.",
+    demo_h2: "المشروع ده بيوضح إيه",
+    demo_li1: "تصميم داشبورد حوالين مسار قراءة مقصود (شكل حرف Z) بدل ما الشارتات تتحط عشوائي",
+    demo_li2: "بناء حقول محسوبة ونسب Table Calculations في Tableau Public",
+    demo_li3: "تشخيص فجوة الإيراد بمقارنة السعر ومزيج المنتجات وأداء المدن قبل أي تصميم",
+    demo_li4: "استخدام اللون بمعنى ثابت طول الداشبورد، مش كديكور",
+    demo_li5: "تحويل كام نقطة بيانات لتوصيات تجارية واضحة ومذكور فيها تحفظاتها بأمانة",
+    side1_b: "الداشبورد", side1_span: "1920×1080، 7 Worksheets، مسار قراءة بشكل Z",
+    side2_b: "الحقول المحسوبة", side2_span: "Revenue per Unit وLaptop Share بالإضافة لـ Table Calculations",
+    side3_b: "البيانات", side3_span: "30 أوردر، يناير–يونيو 2026، 3 مدن، 5 منتجات",
+    side4_b: "المخرج النهائي", side4_span: "داشبورد قصة من صفحة واحدة، منشور على Tableau Public",
+    next_small: "دراسة الحالة التالية", next_title: "لوحة بيانات Superstore · Excel",
+    next_arrow: "←"
+  }
+};
+
+function applyLanguage(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key] !== undefined){
+      el.textContent = translations[lang][key];
+    }
+  });
+  const arrow = document.getElementById('next-arrow');
+  if(arrow) arrow.textContent = translations[lang].next_arrow;
+  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  const label = document.getElementById('lang-label');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+  localStorage.setItem('portfolio-lang', lang);
+}
+function toggleLang(){
+  const current = document.documentElement.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+  applyLanguage(current === 'ar' ? 'en' : 'ar');
+}
+(function(){
+  const saved = localStorage.getItem('portfolio-lang');
+  if(saved === 'ar') applyLanguage('ar');
+})();
+</script>
+</body></html>
