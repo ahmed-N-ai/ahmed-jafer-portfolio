@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sales Performance Story Dashboard — Ahmed Nasser Jafer</title><meta name="description" content="Case study: a one-page Tableau Public dashboard that walks the reader from the situation to the problem to the solution, following a Z-shaped reading path."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="project.css"><link rel="icon" href="../assets/favicon.svg">
-<style>.tableau-embed-wrap{width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card);}.tableau-embed-wrap tableau-viz{width:100%;aspect-ratio:16/9;display:block;}</style>
+<style>.tableau-live-frame{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;border:1px solid var(--line);}.tableau-live-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}</style>
 </head><body>
 <header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../index.html">Ahmed Nasser Jafer</a><div style="display:flex;align-items:center;gap:18px;"><button id="lang-toggle" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language"><span id="lang-label">AR</span></button><a class="back" href="../index.html#projects" data-i18n="back_link">← Back to projects</a></div></div></header>
 <main>
@@ -14,12 +14,11 @@
 <section class="wrap">
 <div class="live-report-box">
   <div class="live-report-label" data-i18n="live_label">🔴 Live interactive report — try the real filters yourself</div>
-  <div class="tableau-embed-wrap">
-    <tableau-viz id="salesDashboardViz" src="https://public.tableau.com/views/problem_17932668506660/SalesDashboard" toolbar="bottom" hide-tabs></tableau-viz>
+  <div class="tableau-live-frame">
+    <iframe title="Sales Performance Story Dashboard" src="https://public.tableau.com/views/problem_17932668506660/SalesDashboard?:showVizHome=no&:embed=y&:toolbar=no&:language=en-US" frameborder="0" allowFullScreen="true" loading="lazy"></iframe>
   </div>
 </div>
 </section>
-<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"></script>
 
 <section class="wrap grid">
 <article class="content">
